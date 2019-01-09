@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="89a6e895-2712-44f5-9cf9-7b161822ad2a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../day19/modelform/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../day19/modelform/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../day22/luffy_permission/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../day22/luffy_permission/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_client/.idea/auto_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../auto_client/.idea/auto_client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_client/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../auto_client/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../auto_client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_client/src/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/../auto_client/src/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_client/src/plugins/memory.py" beforeDir="false" afterPath="$PROJECT_DIR$/../auto_client/src/plugins/memory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_client/src/plugins/nic.py" beforeDir="false" afterPath="$PROJECT_DIR$/../auto_client/src/plugins/nic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../auto_server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmdb/auto_client - 7 - 资产信息入库/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cmdb/auto_client - 7 - 资产信息入库/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmdb/auto_client - 7 - 资产信息入库/src/engine/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/../cmdb/auto_client - 7 - 资产信息入库/src/engine/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmdb/auto_server - 7 - 资产信息入库/.idea/dataSources/d90b8553-6d02-4784-918f-84143f333909.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmdb/auto_server - 7 - 资产信息入库/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cmdb/auto_server - 7 - 资产信息入库/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmdb/auto_server - 7 - 资产信息入库/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../cmdb/auto_server - 7 - 资产信息入库/api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmdb/auto_server - 7 - 资产信息入库/auto_server/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../cmdb/auto_server - 7 - 资产信息入库/auto_server/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmdb/auto_server - 7 - 资产信息入库/auto_server/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../cmdb/auto_server - 7 - 资产信息入库/auto_server/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmdb/auto_server - 7 - 资产信息入库/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../cmdb/auto_server - 7 - 资产信息入库/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day17/s21/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day17/s21/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day17/s21/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day17/s21/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day17/s21/.idea/s21.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../day17/s21/.idea/s21.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day17/s21/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../day17/s21/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day17/s21/templates/host/add_host.html" beforeDir="false" afterPath="$PROJECT_DIR$/../day17/s21/templates/host/add_host.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day18/s21/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day18/s21/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day18/s21/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day18/s21/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day18/s21/.idea/s21.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../day18/s21/.idea/s21.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day18/s21/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../day18/s21/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day19/homework/s21/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day19/homework/s21/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day19/modelform/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day19/modelform/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day19/modelform/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day19/modelform/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day19/modelform/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day19/modelform/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day19/modelform/.idea/modelform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../day19/modelform/.idea/modelform.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day19/modelform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day19/modelform/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day19/modelform/app01/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/../day19/modelform/app01/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day19/modelform/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../day19/modelform/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day20/CMS/.idea/CMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../day20/CMS/.idea/CMS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day20/CMS/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day20/CMS/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day20/CMS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day20/CMS/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day21/CMS/.idea/CMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../day21/CMS/.idea/CMS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day21/CMS/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day21/CMS/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day21/CMS/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day21/CMS/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day21/CMS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day21/CMS/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day21/CMS/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../day21/CMS/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day22/luffy_permission/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day22/luffy_permission/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day22/luffy_permission/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../day22/luffy_permission/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/deploy$j__1_.coverage" NAME="压缩j解压缩 (1) Coverage Results" MODIFIED="1545907426797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
+    <SUITE FILE_PATH="coverage/deploy$ssh.coverage" NAME="ssh Coverage Results" MODIFIED="1545905578931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/脚本" />
+    <SUITE FILE_PATH="coverage/deploy$j.coverage" NAME="压缩j解压缩 Coverage Results" MODIFIED="1545906414126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/脚本" />
+    <SUITE FILE_PATH="coverage/deploy$__1_.coverage" NAME="私钥连接 (1) Coverage Results" MODIFIED="1546929743429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
+    <SUITE FILE_PATH="coverage/deploy$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1546928223246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
+    <SUITE FILE_PATH="coverage/deploy$5_paramiko.coverage" NAME="5.paramiko Coverage Results" MODIFIED="1545901917991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/脚本" />
+    <SUITE FILE_PATH="coverage/deploy$ssh__1_.coverage" NAME="ssh (1) Coverage Results" MODIFIED="1545963242624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
+    <SUITE FILE_PATH="coverage/deploy$test.coverage" NAME="test Coverage Results" MODIFIED="1545970909991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/deploy___4___$a_sh.coverage" NAME="a.sh Coverage Results" MODIFIED="1544970115011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/deploy$.coverage" NAME="用户名密码 Coverage Results" MODIFIED="1545908632280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/templates/deploy_rollback_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="722">
+              <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/templates/deploy_push.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="837">
+              <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1254">
+              <caret line="74" column="65" selection-start-line="74" selection-start-column="65" selection-end-line="74" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/readme">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/templates/project_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="59">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/templates/deploy_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/views/deploy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="124" column="33" selection-start-line="124" selection-start-column="33" selection-end-line="124" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#5162#12115#0" />
+                <element signature="e#12164#18346#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://e211444e-b506-4257-b8c2-0017558a032d/schema/main/table/web_deploy">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>print</find>
+      <find>depart_queryset</find>
+      <find>ThreadPoolExecutor</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/web/templates/depart_list.html" />
+        <option value="$PROJECT_DIR$/web/utils/urls.py" />
+        <option value="$PROJECT_DIR$/web/forms/depart.py" />
+        <option value="$PROJECT_DIR$/web/views/depart.py" />
+        <option value="$PROJECT_DIR$/middlewares/rbac.py" />
+        <option value="$PROJECT_DIR$/rbac/middlewares/rbac.py" />
+        <option value="$PROJECT_DIR$/web/forms/project.py" />
+        <option value="$PROJECT_DIR$/a.sh.py" />
+        <option value="$PROJECT_DIR$/web/views/project.py" />
+        <option value="$PROJECT_DIR$/codes/x1.py" />
+        <option value="$PROJECT_DIR$/web/views/user.py" />
+        <option value="$PROJECT_DIR$/web/views/scripts.py" />
+        <option value="$PROJECT_DIR$/web/forms/script.py" />
+        <option value="$PROJECT_DIR$/web/forms/deploy.py" />
+        <option value="$PROJECT_DIR$/web/views/script.py" />
+        <option value="$PROJECT_DIR$/脚本/5.paramiko.py" />
+        <option value="$PROJECT_DIR$/脚本/用户名密码.py" />
+        <option value="$PROJECT_DIR$/脚本/id_rsa" />
+        <option value="$PROJECT_DIR$/脚本/私钥连接.py" />
+        <option value="$PROJECT_DIR$/脚本/ssh.py" />
+        <option value="$PROJECT_DIR$/脚本/压缩j解压缩.py" />
+        <option value="$PROJECT_DIR$/script/用户名密码.py" />
+        <option value="$PROJECT_DIR$/script/ssh.py" />
+        <option value="$PROJECT_DIR$/link.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/script/压缩j解压缩.py" />
+        <option value="$PROJECT_DIR$/script.py" />
+        <option value="$PROJECT_DIR$/web/templates/deploy_rollback.html" />
+        <option value="$PROJECT_DIR$/script/rollback_script.py" />
+        <option value="$PROJECT_DIR$/web/templates/user_list.html" />
+        <option value="$PROJECT_DIR$/web/templates/script_list.html" />
+        <option value="$PROJECT_DIR$/web/models.py" />
+        <option value="$PROJECT_DIR$/deploy/settings.py" />
+        <option value="$PROJECT_DIR$/web/templates/deploy_lisBAKt.html" />
+        <option value="$PROJECT_DIR$/test.html" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/web/templates/deploy_rollback_list.html" />
+        <option value="$PROJECT_DIR$/web/templatetags/web.py" />
+        <option value="$PROJECT_DIR$/进度条.html" />
+        <option value="$PROJECT_DIR$/web/templates/deploy_push.html" />
+        <option value="$PROJECT_DIR$/readme" />
+        <option value="$PROJECT_DIR$/web/forms/user.py" />
+        <option value="$PROJECT_DIR$/web/views/logout.py" />
+        <option value="$PROJECT_DIR$/web/views/account.py" />
+        <option value="$PROJECT_DIR$/web/templates/layout.html" />
+        <option value="$PROJECT_DIR$/deploy/urls.py" />
+        <option value="$PROJECT_DIR$/web/templates/deploy_list.html" />
+        <option value="$PROJECT_DIR$/script/test.py" />
+        <option value="$PROJECT_DIR$/script/私钥连接.py" />
+        <option value="$PROJECT_DIR$/web/views/deploy.py" />
+        <option value="$PROJECT_DIR$/web/templates/project_list.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="45" />
+    <option name="y" value="280" />
+    <option name="width" value="1391" />
+    <option name="height" value="519" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite&#10;f87ef1f0-83a1-45e1-9540-9e240dabcc33" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\PycharmProjects\python\deploy\web\views" />
+      <recent name="C:\Users\Administrator\PycharmProjects\python\deploy\web\templates" />
+      <recent name="C:\Users\Administrator\PycharmProjects\python\deploy\script" />
+      <recent name="C:\Users\Administrator\Desktop\deploy\web\templates" />
+      <recent name="C:\Users\Administrator\Desktop\deploy\script" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\BaiduNetdiskDownload\L025-老男孩教育-Python22期VIP视频\L025-老男孩教育-Python22期VIP视频\L025-老男孩教育-Python22期VIP视频\day25课上所有\deploy - 4 - 基本发布任务操作\rbac" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Django server.deploy">
+    <configuration name="私钥连接 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="deploy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/私钥连接.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="用户名密码" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="deploy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/用户名密码.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ssh (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="deploy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/ssh.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="deploy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="deploy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="dbhot v4.0 dbhot20181228104300.zip" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="deploy" type="Python.DjangoServer" factoryName="Django server">
+      <module name="deploy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="deploy.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Django server.deploy" />
+      <item itemvalue="Python.ssh (1)" />
+      <item itemvalue="Python.私钥连接 (1)" />
+      <item itemvalue="Python.用户名密码" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.test (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.私钥连接 (1)" />
+        <item itemvalue="Python.test (1)" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.ssh (1)" />
+        <item itemvalue="Python.用户名密码" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="89a6e895-2712-44f5-9cf9-7b161822ad2a" name="Default" comment="" />
+      <created>1543645724758</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1543645724758</updated>
+      <workItem from="1545897437596" duration="12422000" />
+      <workItem from="1545963203924" duration="46450000" />
+      <workItem from="1546076918696" duration="3001000" />
+      <workItem from="1546394715687" duration="38403000" />
+      <workItem from="1546496582344" duration="15079000" />
+      <workItem from="1546513838924" duration="6709000" />
+      <workItem from="1546571258850" duration="17520000" />
+      <workItem from="1546827562474" duration="23125000" />
+      <workItem from="1546936080973" duration="5066000" />
+    </task>
+    <task id="LOCAL-00001" summary="1-9   使用了线程，测试了同时发布两个主机">
+      <created>1547001617741</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1547001617741</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="167775000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="45" y="280" width="1391" height="519" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Structure" order="0" sideWeight="0.19784656" side_tool="true" weight="0.16645244" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.8021534" visible="true" weight="0.162284" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.40673575" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4995958" weight="0.44414535" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5004042" side_tool="true" weight="0.78504676" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.5813084" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.66168225" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.07813674" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1-9   使用了线程，测试了同时发布两个主机" />
+    <option name="LAST_COMMIT_MESSAGE" value="1-9   使用了线程，测试了同时发布两个主机" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/web/templates/script_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://1f870bee-3a15-48fd-b47d-2322ac72c0be/schema/main/table/web_script" />
+    <entry file="das://1f870bee-3a15-48fd-b47d-2322ac72c0be/schema/main/table/web_userinfo" />
+    <entry file="das://1f870bee-3a15-48fd-b47d-2322ac72c0be/schema/main/table/web_deploy" />
+    <entry file="das://1f870bee-3a15-48fd-b47d-2322ac72c0be/schema/main/table/web_project" />
+    <entry file="das://1f870bee-3a15-48fd-b47d-2322ac72c0be/schema/main/table/web_deployrecord" />
+    <entry file="das://cf3d80c8-bb05-446a-bf7d-0e30c5e5a9e0/schema/main/table/web_project" />
+    <entry file="das://cf3d80c8-bb05-446a-bf7d-0e30c5e5a9e0/schema/main/table/web_project_hosts" />
+    <entry file="das://cf3d80c8-bb05-446a-bf7d-0e30c5e5a9e0/schema/main/table/web_userinfo" />
+    <entry file="das://cf3d80c8-bb05-446a-bf7d-0e30c5e5a9e0/schema/main/table/web_department" />
+    <entry file="das://cf3d80c8-bb05-446a-bf7d-0e30c5e5a9e0/schema/main/table/web_host" />
+    <entry file="das://cf3d80c8-bb05-446a-bf7d-0e30c5e5a9e0/schema/main/table/web_rollbackrecord" />
+    <entry file="das://cf3d80c8-bb05-446a-bf7d-0e30c5e5a9e0/schema/main/table/web_deployrecord" />
+    <entry file="das://cf3d80c8-bb05-446a-bf7d-0e30c5e5a9e0/schema/main/table/web_deploy" />
+    <entry file="file://$PROJECT_DIR$/script/rollback_script.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/put_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-100" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/deploy_lisBAKt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="42" column="123" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="123" />
+          <folding>
+            <element signature="e#1112#1142#0#HTML" expanded="true" />
+            <element signature="e#1190#1210#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e211444e-b506-4257-b8c2-0017558a032d/schema/main/table/web_deployrecord">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e211444e-b506-4257-b8c2-0017558a032d/schema/main/table/web_rollbackrecord">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/弹框.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="107" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/进度条.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="6" column="104" selection-start-line="6" selection-start-column="104" selection-end-line="6" selection-end-column="104" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templatetags/web.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1159">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/user_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/deploy_pushbak.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="28" selection-end-line="84" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="832">
+          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/forms/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1499">
+          <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e211444e-b506-4257-b8c2-0017558a032d/schema/main/table/web_userinfo">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e211444e-b506-4257-b8c2-0017558a032d/schema/main/table/auth_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e211444e-b506-4257-b8c2-0017558a032d/schema/main/table/django_session">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/logout.py" />
+    <entry file="file://$PROJECT_DIR$/web/views/account.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/forms/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="114" column="60" selection-start-line="114" selection-start-column="60" selection-end-line="114" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/forms/deploy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-205">
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/test.py" />
+    <entry file="file://$PROJECT_DIR$/web/templates/deploy_rollback_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="74" column="65" selection-start-line="74" selection-start-column="65" selection-end-line="74" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e211444e-b506-4257-b8c2-0017558a032d/schema/main/table/web_deploy">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/私钥连接.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/python36/Lib/concurrent/futures/thread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/views/deploy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="124" column="33" selection-start-line="124" selection-start-column="33" selection-end-line="124" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#5162#12115#0" />
+            <element signature="e#12164#18346#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/deploy_push.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/deploy_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/project_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

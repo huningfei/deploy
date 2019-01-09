@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.css' %}">
+</head>
+<body>
+<div style="width: 400px;margin: 0 auto;margin-top: 100px;">
+    <form class="form-horizontal" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="user" class="col-sm-3 control-label">用户名</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="user" name="username">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="pwd" class="col-sm-3 control-label">密码</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" id="pwd" name="password">
+            </div>
+        </div>
+         <div class="form-group">
+            <label for="code" class="col-sm-3 control-label">验证码</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="code" name="code">
+            </div>
+             <div class="col-sm-4">
+                 <img onclick="changeImage(this);" src="/check/code/"  title="点击刷新">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <button type="submit" class="btn btn-primary">登 录</button>
+                <span style="color: red">{{ error }}</span>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    function changeImage(ths) {
+        ths.src = ths.src + '?'
+
+    }
+</script>
+</body>
+</html>

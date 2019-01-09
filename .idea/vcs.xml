@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/XbLib/v5.0/XbLib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/dbhost/v1/CMS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/dbhost/v5.0/CMS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/dbhot/v2.0/dbhot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/dbhot/v20/dbhot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/dbhot/v3.0/dbhot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/dbhot/v4.0/dbhot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/dbhot/v4.0/dbhot20181228104300" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/dbhot/v4/.0/dbhot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/dbhot/v5.0/dbhot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/dbhot/v6.0/dbhot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/test/v5.0/dbhot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/codes/test2/v5.0/dbhot" vcs="Git" />
+  </component>
+</project>

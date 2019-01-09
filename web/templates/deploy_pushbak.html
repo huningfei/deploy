@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+{% load web %}
+{% block js %}
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $("[data-toggle='popover']").popover();
+        });
+
+
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="luffy-container">
+        <form method="post" class="form-horizontal" novalidate>
+            {% csrf_token %}
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    <i class="fa fa-book" aria-hidden="true"></i>发布信息
+                    <button href="" class="right btn btn-primary btn-xs" style="padding: 2px 8px;margin:-3px">
+                        <i class="fa fa-mail-forward" aria-hidden="true"></i>
+                        发布
+
+                    </button>
+                </div>
+                <div class="panel-body">
+                    <h5>项目：{{ deploy_object.project.title }}</h5>
+                    <h5>版本：{{ deploy_object.version }}</h5>
+                    <h5>显示路径：{{ deploy_object.project.online_path }}</h5>
+
+                </div>
+
+                <!-- Table -->
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>选择</th>
+                        <th>主机</th>
+                        <th>状态</th>
+                        <th>日志</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for host in all_host_list %}
+                        <tr>
+
+                            <td>
+                                {% if host.id in deployed_host_dict %}
+                                    <input value="{{ host.id }}" type="checkbox" name="hosts" checked>
+                                {% else %}
+                                    <input value="{{ host.id }}" type="checkbox" name="hosts">
+                                {% endif %}
+
+                            </td>
+                            <td>{{ host.hostname }}</td>
+                            <td>
+                                {% deploy_status host.id deployed_host_dict %}
+
+
+                            </td>
+                            <td>
+
+                                <button type="button" class="btn btn-info" data-container="body"
+                                        data-toggle="popover" data-placement="bottom"
+                                        data-content="{% log_info host.id deployed_host_dict %}">
+                                    查看日志
+                                </button>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+            </div>
+
+
+        </form>
+    </div>
+{% endblock %}
