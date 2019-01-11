@@ -60,6 +60,7 @@ class Deploy(models.Model):
     """
     project = models.ForeignKey(verbose_name='项目', to='Project')
     version = models.CharField(verbose_name='版本', max_length=32)
+    branch = models.CharField(verbose_name='分支', max_length=32,null=True)
     uid = models.CharField(verbose_name='上线文件包名称', max_length=32, null=True, blank=True)
     status_choice = (
         (1, '未获取'),

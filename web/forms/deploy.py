@@ -5,7 +5,7 @@ from web import models
 class DeployModelForm(BootStrapModelForm):
     class Meta:
         model = models.Deploy
-        fields = ['version','script']
+        fields = ['branch','script']
 
 
 class DeployPushForm(forms.Form):

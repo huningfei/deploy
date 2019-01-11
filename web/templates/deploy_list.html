@@ -9,7 +9,7 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>版本</th>
+                <th>分支名称</th>
                 <th>文件名称</th>
                 <th>状态</th>
                 <th>构建</th>
@@ -21,22 +21,22 @@
             <tbody>
             {% for row in depart_queryset %}
                 <tr>
-                    <td>{{ row.version }}</td>
+                    <td>{{ row.branch }}</td>
                     <td>{{ row.uid }}</td>
                     <td>{{ row.get_status_display }}</td>
                     <td>
-                        <a onclick="buildCode(this,{{ project.id }},{{ row.id }});">获取代码</a>
+                        <a class="btn btn-info" onclick="buildCode(this,{{ project.id }},{{ row.id }});">获取代码</a>
                         <div style="display: inline-block;" class="hide">
                             <img style="height: 17px;" src="/static/imgs/loading.gif" alt="">
                         </div>
                     </td>
                     <td>
-                        <a href="{% memory_url request 'deploy_push' project_id=project.id deploy_id=row.id %}">发布</a>
+                        <a class="btn btn-success" href="{% memory_url request 'deploy_push' project_id=project.id deploy_id=row.id %}">发布</a>
                     </td>
 
                     <td>
-                        <a href="{% memory_url request 'deploy_edit' project_id=project.id nid=row.id %}">编辑</a>
-                        <a href="{% memory_url request 'deploy_del' project_id=project.id nid=row.id %}">删除</a>
+                        <a class="btn btn-info" href="{% memory_url request 'deploy_edit' project_id=project.id nid=row.id %}">编辑</a>
+                        <a class="btn btn-danger" href="{% memory_url request 'deploy_del' project_id=project.id nid=row.id %}">删除</a>
                     </td>
 
                 </tr>

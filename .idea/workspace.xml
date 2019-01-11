@@ -50,7 +50,38 @@
       <change beforePath="$PROJECT_DIR$/../day21/CMS/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../day21/CMS/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../day22/luffy_permission/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day22/luffy_permission/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../day22/luffy_permission/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../day22/luffy_permission/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/app01/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/app01/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/app01/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/app01/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/app01/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/app01/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/app01/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/dbhot/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/dbhot/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/dbhot/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/dbhot/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v1.0/dbhot20190104113642.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v2.0/dbhot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v2.0/dbhot20190104114759.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v3.0/dbhot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v3.0/dbhot20190104114859.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v4.0/dbhot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v4.0/dbhot20190104115024.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v5.0/dbhot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/dbhot/v5.0/dbhot20190108185209.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/私钥连接.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/私钥连接.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/forms/deploy.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/forms/deploy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/deploy_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/deploy_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/project_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/project_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/views/deploy.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/views/deploy.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,11 +93,12 @@
     <SUITE FILE_PATH="coverage/deploy$j__1_.coverage" NAME="压缩j解压缩 (1) Coverage Results" MODIFIED="1545907426797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/deploy$ssh.coverage" NAME="ssh Coverage Results" MODIFIED="1545905578931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/脚本" />
     <SUITE FILE_PATH="coverage/deploy$j.coverage" NAME="压缩j解压缩 Coverage Results" MODIFIED="1545906414126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/脚本" />
-    <SUITE FILE_PATH="coverage/deploy$__1_.coverage" NAME="私钥连接 (1) Coverage Results" MODIFIED="1546929743429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
+    <SUITE FILE_PATH="coverage/deploy$__1_.coverage" NAME="私钥连接 (1) Coverage Results" MODIFIED="1547017301327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/deploy$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1546928223246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/deploy$5_paramiko.coverage" NAME="5.paramiko Coverage Results" MODIFIED="1545901917991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/脚本" />
     <SUITE FILE_PATH="coverage/deploy$ssh__1_.coverage" NAME="ssh (1) Coverage Results" MODIFIED="1545963242624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/deploy$test.coverage" NAME="test Coverage Results" MODIFIED="1545970909991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/deploy$test_time.coverage" NAME="test-time Coverage Results" MODIFIED="1547199578663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/deploy___4___$a_sh.coverage" NAME="a.sh Coverage Results" MODIFIED="1544970115011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/deploy$.coverage" NAME="用户名密码 Coverage Results" MODIFIED="1545908632280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
   </component>
@@ -106,69 +138,44 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/templates/deploy_rollback_list.html">
+        <entry file="file://$PROJECT_DIR$/script/私钥连接.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+            <state relative-caret-position="420">
+              <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/templates/deploy_push.html">
+        <entry file="file://$PROJECT_DIR$/script/test-time.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="837">
-              <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1254">
-              <caret line="74" column="65" selection-start-line="74" selection-start-column="65" selection-end-line="74" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/readme">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="29">
+              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/templates/project_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/templates/deploy_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/views/deploy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="124" column="33" selection-start-line="124" selection-start-column="33" selection-end-line="124" selection-end-column="33" />
+            <state relative-caret-position="316">
+              <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#5162#12115#0" />
-                <element signature="e#12164#18346#0" />
+                <element signature="e#502#1075#0" />
+                <element signature="e#1119#1668#0" />
+                <element signature="e#1718#2329#0" />
+                <element signature="e#2378#2696#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/put_script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -197,15 +204,15 @@
       <find>print</find>
       <find>depart_queryset</find>
       <find>ThreadPoolExecutor</find>
+      <find>version</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/templates/depart_list.html" />
         <option value="$PROJECT_DIR$/web/utils/urls.py" />
         <option value="$PROJECT_DIR$/web/forms/depart.py" />
         <option value="$PROJECT_DIR$/web/views/depart.py" />
@@ -218,7 +225,6 @@
         <option value="$PROJECT_DIR$/web/views/user.py" />
         <option value="$PROJECT_DIR$/web/views/scripts.py" />
         <option value="$PROJECT_DIR$/web/forms/script.py" />
-        <option value="$PROJECT_DIR$/web/forms/deploy.py" />
         <option value="$PROJECT_DIR$/web/views/script.py" />
         <option value="$PROJECT_DIR$/脚本/5.paramiko.py" />
         <option value="$PROJECT_DIR$/脚本/用户名密码.py" />
@@ -236,7 +242,6 @@
         <option value="$PROJECT_DIR$/script/rollback_script.py" />
         <option value="$PROJECT_DIR$/web/templates/user_list.html" />
         <option value="$PROJECT_DIR$/web/templates/script_list.html" />
-        <option value="$PROJECT_DIR$/web/models.py" />
         <option value="$PROJECT_DIR$/deploy/settings.py" />
         <option value="$PROJECT_DIR$/web/templates/deploy_lisBAKt.html" />
         <option value="$PROJECT_DIR$/test.html" />
@@ -250,18 +255,21 @@
         <option value="$PROJECT_DIR$/web/views/logout.py" />
         <option value="$PROJECT_DIR$/web/views/account.py" />
         <option value="$PROJECT_DIR$/web/templates/layout.html" />
-        <option value="$PROJECT_DIR$/deploy/urls.py" />
-        <option value="$PROJECT_DIR$/web/templates/deploy_list.html" />
         <option value="$PROJECT_DIR$/script/test.py" />
+        <option value="$PROJECT_DIR$/deploy/urls.py" />
         <option value="$PROJECT_DIR$/script/私钥连接.py" />
-        <option value="$PROJECT_DIR$/web/views/deploy.py" />
         <option value="$PROJECT_DIR$/web/templates/project_list.html" />
+        <option value="$PROJECT_DIR$/web/models.py" />
+        <option value="$PROJECT_DIR$/web/forms/deploy.py" />
+        <option value="$PROJECT_DIR$/web/templates/deploy_list.html" />
+        <option value="$PROJECT_DIR$/script/test-time.py" />
+        <option value="$PROJECT_DIR$/web/views/deploy.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="45" />
-    <option name="y" value="280" />
+    <option name="y" value="479" />
     <option name="width" value="1391" />
     <option name="height" value="519" />
   </component>
@@ -271,7 +279,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -279,10 +286,45 @@
               <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
               <item name="deploy" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="codes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="codes" type="462c0819:PsiDirectoryNode" />
+              <item name="XbLib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="codes" type="462c0819:PsiDirectoryNode" />
+              <item name="XbLib" type="462c0819:PsiDirectoryNode" />
+              <item name="2019.01.11.17.40.32" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -290,7 +332,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Tencent Files/825536458/FileRecv/django_websocket - 1 - 基本聊天实例" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -319,7 +361,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.deploy">
+  <component name="RunManager" selected="Python.test-time">
     <configuration name="私钥连接 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="deploy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -334,28 +376,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/私钥连接.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="用户名密码" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="deploy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/用户名密码.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -400,6 +420,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test-time" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="deploy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/test-time.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -458,17 +500,17 @@
       <item itemvalue="Django server.deploy" />
       <item itemvalue="Python.ssh (1)" />
       <item itemvalue="Python.私钥连接 (1)" />
-      <item itemvalue="Python.用户名密码" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.test (1)" />
+      <item itemvalue="Python.test-time" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test-time" />
         <item itemvalue="Python.私钥连接 (1)" />
         <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.ssh (1)" />
-        <item itemvalue="Python.用户名密码" />
       </list>
     </recent_temporary>
   </component>
@@ -491,6 +533,7 @@
       <workItem from="1546571258850" duration="17520000" />
       <workItem from="1546827562474" duration="23125000" />
       <workItem from="1546936080973" duration="5066000" />
+      <workItem from="1547003018075" duration="16291000" />
     </task>
     <task id="LOCAL-00001" summary="1-9   使用了线程，测试了同时发布两个主机">
       <created>1547001617741</created>
@@ -503,34 +546,33 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167775000" />
+    <option name="totallyTimeSpent" value="184066000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="45" y="280" width="1391" height="519" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.19784656" side_tool="true" weight="0.16645244" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.8021534" visible="true" weight="0.162284" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.8021534" visible="true" weight="0.1336761" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40673575" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24899058" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4995958" weight="0.44414535" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4995958" weight="0.4858681" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5004042" side_tool="true" weight="0.78504676" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.5813084" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.66168225" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.66083443" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.07813674" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.11632391" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,14 +583,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="1-9   使用了线程，测试了同时发布两个主机" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/templates/script_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1f870bee-3a15-48fd-b47d-2322ac72c0be/schema/main/table/web_script" />
     <entry file="das://1f870bee-3a15-48fd-b47d-2322ac72c0be/schema/main/table/web_userinfo" />
     <entry file="das://1f870bee-3a15-48fd-b47d-2322ac72c0be/schema/main/table/web_deploy" />
     <entry file="das://1f870bee-3a15-48fd-b47d-2322ac72c0be/schema/main/table/web_project" />
@@ -563,11 +597,6 @@
     <entry file="das://cf3d80c8-bb05-446a-bf7d-0e30c5e5a9e0/schema/main/table/web_deploy" />
     <entry file="file://$PROJECT_DIR$/script/rollback_script.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/put_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100" />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/deploy_lisBAKt.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -619,16 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/templatetags/web.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1159">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/user_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
@@ -650,24 +669,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/forms/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1499">
-          <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -730,15 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/forms/deploy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-205">
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/views/script.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -760,17 +756,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script/test.py" />
+    <entry file="file://C:/python36/Lib/concurrent/futures/thread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/deploy_rollback_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
+        <state>
           <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy/urls.py">
+    <entry file="file://$PROJECT_DIR$/web/templates/deploy_push.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="74" column="65" selection-start-line="74" selection-start-column="65" selection-end-line="74" selection-end-column="65" />
+        <state relative-caret-position="589">
+          <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -781,6 +784,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding>
+            <element signature="e#640#672#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="62" column="72" selection-start-line="62" selection-start-column="72" selection-end-line="62" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/depart_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/forms/deploy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/deploy_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="das://e211444e-b506-4257-b8c2-0017558a032d/schema/main/table/web_deploy">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -788,50 +839,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script/私钥连接.py">
+    <entry file="file://$PROJECT_DIR$/web/templates/project_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
+        <state relative-caret-position="192">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templatetags/web.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="54" column="42" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/put_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/python36/Lib/concurrent/futures/thread.py">
+    <entry file="file://$PROJECT_DIR$/script/私钥连接.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+        <state relative-caret-position="420">
+          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/test-time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/views/deploy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="124" column="33" selection-start-line="124" selection-start-column="33" selection-end-line="124" selection-end-column="33" />
+        <state relative-caret-position="316">
+          <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#5162#12115#0" />
-            <element signature="e#12164#18346#0" />
+            <element signature="e#502#1075#0" />
+            <element signature="e#1119#1668#0" />
+            <element signature="e#1718#2329#0" />
+            <element signature="e#2378#2696#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/deploy_push.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
-          <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/deploy_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/templates/project_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>

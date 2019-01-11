@@ -1,4 +1,5 @@
 import os
+import time
 import shutil
 import traceback
 import paramiko
@@ -98,12 +99,14 @@ def deploy_fetch(request, project_id, deploy_id):
     # print(request.user.git_pwd)
     # 部署的是那个项目
     deploy_object = models.Deploy.objects.filter(id=deploy_id, project_id=project_id).first()
-    # 下载代码所在路径   deploy_object.project.title 项目名   deploy_object.version项目版本
-    cwd_path = os.path.join(settings.BASE_DIR, 'codes', deploy_object.project.title, deploy_object.version)
+    # 下载代码所在路径   deploy_object.project.title 项目名   deploy_object.branch分支名
+    ctime = time.strftime('%Y%m%d%H%M%S')
+    # ctime = time.strftime('%Y.%m.%d.%H.%M.%S')
+    cwd_path = os.path.join(settings.BASE_DIR, 'codes', deploy_object.project.title,ctime )
 
-    # print(cwd_path)
+    print(cwd_path)
 
-    # 1. 获取代码  仓库地址 + 版本 + subprocess
+    # 1. 获取代码  仓库地址 + 分支 + subprocess
     def get_code():
         # 判断代码存放路径是否存在,遇到的问题是删除不了目录
         project_path = os.path.join(cwd_path, deploy_object.project.title)
@@ -119,8 +122,8 @@ def deploy_fetch(request, project_id, deploy_id):
             git_addr = deploy_object.project.git
 
         # 克隆仓库到本地，-b指定版本
-        # cmd = "git clone -b %s %s" % (deploy_object.version, git_addr)
-        cmd = "git clone  %s" % (git_addr)
+        cmd = "git clone -b %s %s" % (deploy_object.branch, git_addr)
+        # cmd = "git clone  %s" % (git_addr)
         if not os.path.exists(cwd_path):  # 如果存放代码的目录不存在，就创建
             os.makedirs(cwd_path)
         subprocess.check_call(cmd, shell=True, cwd=cwd_path)
@@ -186,16 +189,17 @@ def deploy_push(request, project_id, deploy_id):
 
     host_id_list = request.POST.getlist('hosts')  # 获取前端页面给选中的主机的id hosts是前端name的值
     host_list = models.Host.objects.filter(id__in=host_id_list)
+    ctime = time.strftime('%Y%m%d%H%M%S')
     def task(host_object, deploy_object):
         cwd_path = os.path.join(settings.BASE_DIR, 'codes', deploy_object.project.title,
-                                deploy_object.version)  # 存放路径
+                                ctime)  # 存放路径
 
         # 1. 在DeployRecord中创建一条发布任务
         def create_deploy_record():
             status = False
             try:
                 record_object = models.DeployRecord.objects.get_or_create(deploy=deploy_object, host=host_object,
-                                                                          host_version=deploy_object.version)
+                                                                          host_version=deploy_object.branch)
                 status = True
                 return record_object
             except Exception as e:
@@ -223,7 +227,7 @@ def deploy_push(request, project_id, deploy_id):
                 # 创建目录
                 code_file_path = os.path.join(cwd_path, deploy_object.uid)  # 存放代码的目录
                 target_folder_path = '/home/yx/codes/%s/%s/' % (
-                    deploy_object.project.title, deploy_object.version)
+                    deploy_object.project.title, deploy_object.branch)
                 stdin, stdout, stderr = ssh.exec_command('mkdir -p %s' % target_folder_path)
                 stdout.read()
                 # 上传代码到服务器
@@ -265,7 +269,7 @@ def deploy_push(request, project_id, deploy_id):
                 # 创建脚本目录
                 code_file_path = os.path.join(cwd_path, deploy_object.uid)
                 target_folder_path = '/home/yx/script/%s/%s/' % (
-                    deploy_object.project.title, deploy_object.version)  # /home/yx/script/dbhot/v4.0
+                    deploy_object.project.title, deploy_object.branch)  # /home/yx/script/dbhot/branch_name
                 stdin, stdout, stderr = ssh.exec_command('mkdir -p %s' % target_folder_path)
                 stdout.read()
                 # 上传数据库里面的脚本内容到服务器
@@ -280,7 +284,7 @@ def deploy_push(request, project_id, deploy_id):
 
                 # # 执行脚本
                 command = 'python3 %s %s %s %s' % (
-                    target_file_path, deploy_object.project.title, deploy_object.version, deploy_object.uid)
+                    target_file_path, deploy_object.project.title, deploy_object.branch, deploy_object.uid)
                 # python3 /home/yx/script/dbhot/v4.0/dbhot20181228104300.py dbhot v4.0 dbhot20181228104300.zip
                 print(command)
 
@@ -295,10 +299,10 @@ def deploy_push(request, project_id, deploy_id):
                 record_object.save()
             return status
 
-        status = publish()
-
-        if not status:  # 如果是false就返回空，不往下执行了
-            return
+        # status = publish()
+        #
+        # if not status:  # 如果是false就返回空，不往下执行了
+        #     return
 
         # 4 发布成功之后，更新主机状态
         def update_status():
@@ -310,10 +314,10 @@ def deploy_push(request, project_id, deploy_id):
             else:
                 record_object.status = 2  # 更新主机的发布状态,
                 # 更新项目版本的发布状态
-                models.Deploy.objects.filter(project_id=project_id, version=deploy_object.version).update(status=3)
+                models.Deploy.objects.filter(project_id=project_id, branch=deploy_object.branch).update(status=3)
                 # 更新主机的当前版本
-                models.DeployRecord.objects.filter(host=host_object).update(
-                    host_version=deploy_object.version)
+                # models.DeployRecord.objects.filter(host=host_object).update(
+                #     host_version=deploy_object.version)
                 record_object.log='发布成功'
                 record_object.save()
 
