@@ -140,7 +140,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/私钥连接.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="266">
               <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="31" />
             </state>
           </provider>
@@ -149,7 +149,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/test-time.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
+            <state relative-caret-position="19">
               <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="42" />
             </state>
           </provider>
@@ -159,13 +159,9 @@
         <entry file="file://$PROJECT_DIR$/web/views/deploy.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="316">
-              <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
+              <caret line="164" selection-start-line="164" selection-end-line="164" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#502#1075#0" />
-                <element signature="e#1119#1668#0" />
-                <element signature="e#1718#2329#0" />
-                <element signature="e#2378#2696#0" />
               </folding>
             </state>
           </provider>
@@ -174,7 +170,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/put_script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
+            <state relative-caret-position="247">
               <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
@@ -267,7 +263,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="45" />
     <option name="y" value="479" />
     <option name="width" value="1391" />
@@ -534,6 +530,7 @@
       <workItem from="1546827562474" duration="23125000" />
       <workItem from="1546936080973" duration="5066000" />
       <workItem from="1547003018075" duration="16291000" />
+      <workItem from="1547206116675" duration="531000" />
     </task>
     <task id="LOCAL-00001" summary="1-9   使用了线程，测试了同时发布两个主机">
       <created>1547001617741</created>
@@ -546,14 +543,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184066000" />
+    <option name="totallyTimeSpent" value="184597000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.19784656" side_tool="true" weight="0.16645244" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.8021534" visible="true" weight="0.1336761" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.8021534" visible="true" weight="0.13496144" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.24899058" />
@@ -832,13 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://e211444e-b506-4257-b8c2-0017558a032d/schema/main/table/web_deploy">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/project_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -856,37 +846,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script/put_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/script/私钥连接.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="266">
           <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script/test-time.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
+        <state relative-caret-position="19">
           <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/put_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e211444e-b506-4257-b8c2-0017558a032d/schema/main/table/web_deploy">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/views/deploy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
-          <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
+          <caret line="164" selection-start-line="164" selection-end-line="164" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#502#1075#0" />
-            <element signature="e#1119#1668#0" />
-            <element signature="e#1718#2329#0" />
-            <element signature="e#2378#2696#0" />
           </folding>
         </state>
       </provider>
