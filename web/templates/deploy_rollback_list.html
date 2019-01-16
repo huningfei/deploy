@@ -1,0 +1,125 @@
+{% extends 'layout.html' %}
+{% load web %}
+{% block js %}
+
+    <script src="./../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../static/plugins/bootstrap/css/bootstrap.min.css"></script>
+    <script src="../static/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        function f() {
+            var options = $("#version option:selected");
+            console.log(options.text());
+            alert(options.text())
+
+        }
+
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="luffy-container">
+        <form action="" method="post" class="form-horizontal" novalidate>
+            {% csrf_token %}
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+
+                <div class="panel-heading">
+                    <i class="fa fa-book" aria-hidden="true"></i>回滚信息
+                    <button href="" class="right btn btn-primary btn-xs" style="padding: 2px 8px;margin:-3px">
+                        <i class="fa fa-mail-forward" aria-hidden="true"></i>
+                        回滚
+
+                    </button>
+
+
+                </div>
+
+                <div class="panel-body">
+                    <h3>项目：{{ deploy_object.project.title }}</h3>
+                    <h3>
+                        <for
+                        ="exampleInputPassword1">选择要回滚的版本:
+                    </h3>
+                    <select name="version" id="version" style="width: 160px">
+                        {% for deploy in all_project_version %}
+                            <option value="{{ deploy.uid }}" selected="selected">{{ deploy.uid }} </option>
+
+                        {% endfor %}
+                    </select>
+                    {#                    {% for deploy in all_project_version %}#}
+                    {#                        <td>#}
+                    {#                            <input value="{{ deploy.version }}" type="radio" name="version">#}
+                    {#                        </td>#}
+                    {#                        <td>#}
+                    {#                            {{ deploy.version }}#}
+                    {#                        </td>#}
+                    {#                    {% endfor %}#}
+
+                </div>
+
+                <!-- Table -->
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>选择</th>
+                        <th>主机</th>
+                        <th>状态</th>
+
+                        <th>回滚时间</th>
+                        <th>日志</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for host in all_host_list %}
+                        <tr>
+
+                            <td>
+                                <input value="{{ host.id }}" type="checkbox" name="hosts">
+
+                            </td>
+                            <td>{{ host.hostname }}</td>
+                            <td>{% rollback_status host.id deployed_host_dict %}</td>
+
+
+
+                            <td>
+                                {% host_datetime host.id deployed_host_dict %}
+
+                            </td>
+                                 <td>
+
+                                <button type="button" class="btn btn-info" data-container="body"
+                                        data-toggle="popover" data-placement="bottom"
+                                        data-content="{% rollback_log host.id deployed_host_dict %}">
+                                    查看日志
+                                </button>
+
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+            </div>
+
+            {#            <div>#}
+            {#                {{ form.hosts }}#}
+            {#            </div>#}
+            {#            <div class="form-group">#}
+            {#                <div class="col-sm-offset-2 col-sm-9">#}
+            {#                    <input type="submit" class="btn btn-primary" value="发 布">#}
+            {#                    <span style="color: red;">{{ form.hosts.errors.0 }}</span>#}
+            {#                </div>#}
+            {#            </div>#}
+        </form>
+    </div>
+{% endblock %}
