@@ -1,0 +1,46 @@
+import paramiko
+from io import StringIO
+
+key_str = """-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA+TISOljFJI4QZ8QyXVOxiCPt/B7+jpfaCtm5kW5qfQqDtuQj
+kqROmRw3iBvexSmCMAIsr4fM4OINncPF0voYVMVl444IQFmpfrdjR7VwTkrTSXV6
+/qyTAr8SLjKWuoIC1FBy9z3KAIya2JJ7OR0C+rJiYmWjoeWMH2wySChwme2I3t4x
+eq9p0i8mIg4ODiZXwbC07KmwKUVcM/2tTbT90iT61l47IAIIpjm2GVowdbUO+gi5
+BCGdFCM5xvccIZG5nka5+2TRBPRp/l4zMflalbBRePtQEA06EjwZerQXkKIRulVy
+4OLX/y0ailNem6wsWGemxWb4W3pBXx/hAGlXjQIDAQABAoIBAChhkMqbr/aofsgR
+5wdwlIg3Kk18yEtbGB5CAewrNF5m4ck1Vv5gWcw94lHQEl1oyIv3Dj6zhuO6PfKe
+0uPJW0ABbO1fCr9CyFCcbx4jrLtDLNHuk6vJU1lSlSOfVwWKI+M71iVygdVs83q8
+4fLzXJQ7a+3+AnItvHMrGUrQIs8OeQ7NbMaCdUExoTTau8aa1yRzK1tgSLqfHP66
+12AMwqLdHqCWjBeahk1IntUwO/xGWbRaT2ScGAKIuYOqLBHX+t5k2o1aXbh/vwy8
+DiZE0FbPanj/jJ/sjuwhEgKas9rmCYUKpcQhZISlQL+SK+KtlNsqWcdwwcgAZW7F
+tudCU4ECgYEA/urIUiE6MUKYgeUuXqaDY49vy/9kMaQdVfSj/AITyMs5RHRC1VxW
+e4IwoVEBfX3bnjRSQNfAArgBLpE5+gL7xU1Ko983LDMszZup+L9ORd5ZklTo9e2O
+TyjU8qEZvaIyB2ANjjb0LhMPb2s3wGGM1c1aOOXJmMKe/ePC8KdcwwkCgYEA+kER
+D8E57Vw49UTIJJ8cyfsLZoDON8Xb9PGKuHUWfN7QraoCaGmMjdIBp2WJXSP0S2RT
+i/dD493NewzEXw7FeSDgfKZUI3Ldgm++Fxn8NItgW5+iwL2Dei2Sx38kXjtWMHYk
+iP7/IuHy64LuN2u+irB7tohKteBZWUsThX0tfWUCgYEA/LguWJ3wXx2yrDRVQCi8
+YVu2bfuHjV8yZiDe4dv9WTeAUskf6P5eDpwHMiZo38yCidk9ImPCS++33D7Fx4Jl
+sDjsIoIM5Jjndf85Bw5BvyqsilH7krQsPXYxh0kHh+TgzEcBqVf5xCPJTaBx6RvM
+z7mCFJ5aukNX9ER04rhJUmECgYBCgsyQDWDh7uLMfQ1cflVecTRkd9NXC2UcQp4F
+zEi/w1Be95JQQc0zXB9IaDoL4SRqbS2vQ3Ztt2OHUqtWQEzHlq9TMbmm+j5ZDm3N
+IgDfzjM75r+Qzk2FSVt7XhVCXi7YDm5DYtJYaQjxAwlg/WfU4Hbg2nRQxmG407VK
+gyx16QKBgQCMyC2Qxowquemoy20zRciR/MLeTNLGawEogDhvRqM1iIscPDC3P8WO
+mxzMmiflBbEfWqZqcq/bjKI0u5SWkX9RDoTCSOR1c4Behg0thJXspEM/48h3WtpW
+Vqmwbpc2v12RDK33/UqVH9ft5KaanZE2MSnrgk8Ufac35N0DtyXSCQ==
+-----END RSA PRIVATE KEY-----"""
+
+file_obj = StringIO(key_str)
+print(file_obj)
+private_key = paramiko.RSAKey(file_obj)
+transport = paramiko.Transport(('192.168.7.32', 22))
+transport.connect(username='yx', pkey=private_key)
+
+ssh = paramiko.SSHClient()
+ssh._transport = transport
+
+stdin, stdout, stderr = ssh.exec_command('df')
+result = stdout.read()
+
+transport.close()
+
+print(result.decode())
