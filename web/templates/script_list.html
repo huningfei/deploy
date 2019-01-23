@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% load web %}
+{% block content %}
+    <h1>脚本列表</h1>
+    <div>
+        <a class="btn btn-primary" href="{% memory_url request 'script_add' %}">添加</a>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>标题</th>
+            <th>解释器</th>
+{#            <th>脚本内容</th>#}
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in depart_queryset %}
+            <tr>
+                <td>{{ row.title }}</td>
+                <td>{{ row.interpreter }}</td>
+{#                <td>{{ row.code }}</td>#}
+                <td>
+                    <a href="{% memory_url request 'script_edit' row.id %}">编辑</a>
+                    <a href="{% memory_url request 'script_del' row.id %}">删除</a>
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {{ pager.page_html|safe }}
+        </ul>
+    </nav>
+{% endblock %}
