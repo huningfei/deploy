@@ -1,0 +1,19 @@
+# 这是上传脚本
+#!/bin/bash
+project_name=$1
+dir_time=$2
+file_name=$3
+# 所有代码存放目录
+CODE_BASE_PATH="/home/yx/codes"
+# 某个项目存放目录
+PROJECT_PATH="$CODE_BASE_PATH/$project_name/$dir_time/${project_name}${dir_time}"
+echo "$PROJECT_PATH"
+# 项目所在目录
+WEB_BASE_PATH="/home/yx/sites/$project_name"
+if [ -d $PROJECT_PATH ]
+then
+        # 拷贝文件到项目所在目录，但是要排除所有的配置文件
+  rsync -av $PROJECT_PATH/ --exclude-from "/home/yx/exclude.list"  $WEB_BASE_PATH
+else
+  unzip -d $PROJECT_PATH  $CODE_BASE_PATH/$project_name/$dir_time/$file_name
+  rsync -av $PROJECT_PATH/ --exclude-from "/home/yx/exclude.list"  $WEB_BASE_PATH
