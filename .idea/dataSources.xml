@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db" uuid="4f6fd1f2-7e45-4d2f-b7ea-52f83a6f172c">
+    <data-source source="LOCAL" name="db" uuid="30f44278-4e6e-4e9e-a5da-74d77e32ccdf">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\Administrator\PycharmProjects\python\1-16php版本\deploy\db.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\PycharmProjects\python\deploy\db.sqlite3</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>

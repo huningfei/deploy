@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% load web %}
+{% load rbac %}
+{% block content %}
+    <h1>数据库修改申请单</h1>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>修改库名</th>
+            <th>申请日期</th>
+             <th>状态</th>
+            <th>审核编辑</th>
+
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in depart_queryset %}
+            <tr>
+
+                <td>{{ row.database_name }}</td>
+                <td>{{ row.Apply_time|date:"Y-m-d" }}</td>
+                <td>{{ row.get_status_display }}</td>
+                      <td>
+                    {% if "database_edit"|permission:request %}
+                        <a class="btn btn-info" href="{% memory_url request 'database_edit' row.id %}">开发</a>
+                    {% endif %}
+                    {% if "project_database_edit"|permission:request %}
+                        <a class="btn btn-warning" href="{% memory_url request 'project_database_edit' row.id %}">项目负责人</a>
+                     {% endif %}
+
+                     {% if "op_database_edit"|permission:request %}
+                        <a class="btn btn-danger"  href="{% memory_url request 'op_database_edit' row.id %}"   >运维</a>
+                     {% endif %}
+
+                </td>
+
+                <td>
+
+                    <a href="{% memory_url request 'database_del' row.id %}">删除</a>
+
+                    <a href="{% memory_url request 'database_detail' row.id %}">查看详情</a>
+
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {{ pager.page_html|safe }}
+        </ul>
+    </nav>
+{% endblock %}

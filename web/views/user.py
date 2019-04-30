@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from web.forms.user import UserModelForm
 from web import models
+from rbac import models as rbac_model # 导入rbac里面的用户表
 from web.utils.pager import Pagination
 from web.utils.urls import memory_reverse
 
@@ -14,11 +15,11 @@ def user_list(request):
     page = request.GET.get('page', 1)
 
     # 数据库中数据总条数
-    total_count = models.UserInfo.objects.all().count()
+    total_count = rbac_model.UserInfo.objects.all().count()
 
     # 数据库中获取即可
     pager = Pagination(page,total_count,request.path_info)
-    depart_queryset = models.UserInfo.objects.all()[pager.start :pager.end]
+    depart_queryset = rbac_model.UserInfo.objects.all()[pager.start :pager.end]
 
     return render(request,'user_list.html',{'depart_queryset':depart_queryset,'pager':pager})
 
@@ -46,7 +47,7 @@ def user_edit(request,nid):
     :param nid: 当前要编辑的部门ID
     :return:
     """
-    obj = models.UserInfo.objects.filter(id=nid).first() # 包含此行的所有数据
+    obj = rbac_model.UserInfo.objects.filter(id=nid).first() # 包含此行的所有数据
     if request.method == "GET":
         # 生成HTML标签 + 携带默认值
         form = UserModelForm(instance=obj)
@@ -69,5 +70,5 @@ def user_del(request,nid):
     origin = memory_reverse(request,'user_list')
     if request.method == 'GET':
         return render(request, 'delete.html', {'cancel': origin})
-    models.UserInfo.objects.filter(id=nid).delete()
+        rbac_model.UserInfo.objects.filter(id=nid).delete()
     return redirect(origin)

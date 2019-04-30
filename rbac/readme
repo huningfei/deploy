@@ -1,0 +1,127 @@
+目标：将rbac做成一个公共组件，组件包含：权限控制、菜单的定制、页面定制。
+
+使用rbac权限系统步骤：
+    1. 拷贝rbac应用
+
+    2. 删除rbac/migrations目录中除 __init__.py 以外的所有文件
+
+    3. 配置文件中注册 rbac的app
+        INSTALLED_APPS = [
+            ...
+            'rbac.apps.RbacConfig',
+        ]
+
+    4. 数据库迁移
+        python manage.py makemigrations
+        python manage.py migrate
+
+
+    5. 编写测试系统的业务逻辑
+        如果使用rbac中的模板的话，需要先删除layout.html中的：
+             <!-- 导入xxxxxxx模块 -->
+            {% load rbac %}
+            <!-- 执行get_menu函数并传递了一个参数 -->
+            {% get_menu request %}
+
+        业务逻辑开发完毕....
+
+    6. 设置权限相关的配置文件
+        # ############################ 权限+菜单相关配置 #############################
+        RBAC_PERMISSION_SESSION_KEY = "ijksdufwesdfs"
+        RBAC_MENU_SESSION_KEY = "rtwsdfgwerffsd"
+
+        VALID_LIST = [
+            '/api/login/',
+            '/admin/.*'
+        ]
+
+    7. 基于django admin 录入权限数据
+        - 菜单
+        - 权限
+        - 权限角色关系表
+        - 角色
+        - 用户角色关系表
+        - 用户
+
+    8. 权限和菜单信息的应用
+        - 用户登录：初始化权限和菜单信息
+            def login(request):
+                """
+                用户登录
+                :param request:
+                :return:
+                """
+                if request.method == "GET":
+                    return render(request, 'api/login.html')
+
+                user = request.POST.get('user')
+                pwd = request.POST.get('pwd')
+
+                user = rbac_model.UserInfo.objects.filter(username=user, password=pwd).first()
+                if not user:
+                    return render(request, 'api/login.html', {'msg': '用户名或密码错误'})
+                # ############ 看这里 ############
+                init_permission(user, request)
+
+                return redirect('/api/app/list/')
+        - 中间件：权限判断
+            settings.py
+                MIDDLEWARE = [
+                    ...
+                    'rbac.middlewares.rbac.RBACMiddleware',
+                ]
+        - inclusion_tag:动态生成菜单
+            layout.html
+                <div class="menu-body">
+                    {% load rbac %}
+
+                    {% get_menu request %}
+                </div>
+
+
+    9. 控制页面按钮
+
+        {% extends 'layout.html' %}
+
+        {% load rbac %}
+
+        {% block content %}
+            <h1>应用列表</h1>
+
+            {% if 'app_add'|permission:request %}
+                <a class="btn btn-primary" href="{% url 'app_add' %}">添加</a>
+            {% endif %}
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                         {% if "app_edit"|permission:request or "app_del"|permission:request %}
+                        <th>操作</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in app_queryset %}
+                        <tr>
+                            <td>{{ row.id }}</td>
+                            <td>{{ row.title }}</td>
+                            {% if "app_edit"|permission:request or "app_del"|permission:request %}
+                            <td>
+                                {% if "app_edit"|permission:request %}
+                                    <a href="{% url 'app_edit' row.id %}">编辑</a>
+                                {% endif %}
+                                {% if "app_del"|permission:request %}
+                                    <a href="{% url 'app_del' row.id %}/">删除</a>
+                                {% endif %}
+                            </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+        {% endblock %}
+

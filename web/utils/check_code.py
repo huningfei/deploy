@@ -2,7 +2,7 @@ import random
 from PIL import Image,ImageDraw,ImageFont,ImageFilter
 
 
-def gen_check_code(width=120, height=30, char_length=5, font_file='Monaco.ttf', font_size=28):
+def gen_check_code(width=120, height=30, char_length=5, font_file=r'D:\PycharmProjects\python\deploy\Monaco.ttf', font_size=28):
     code = []
     img = Image.new(mode='RGB', size=(width, height), color=(255, 255, 255))
     draw = ImageDraw.Draw(img, mode='RGB')

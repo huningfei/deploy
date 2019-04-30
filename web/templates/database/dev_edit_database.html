@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+{% load web %}
+{% block content %}
+    <h1>添加数据库申请单</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="title">更改的数据库名</label>
+                        <input type="text" id="title" name="database_name" class="form-control"
+                               value="{{ report.database_name }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">申请日期</label>
+                        <input type="text" id="test1" name="Apply_time" class="form-control"
+                               value="{{ report.Apply_time|date:"Y-m-d" }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">sql语句</label>
+                        <textarea class="form-control" name="sql_yj" id="content"
+                                  rows="20">{{ report.sql_yj }}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">回滚方案</label>
+                        <input type="text" id="title" name="Rollback_name" class="form-control"
+                               value="{{ report.Rollback_name }}">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="title">开发签字</label>
+                        <input type="text" id="title" name="Development_qz" class="form-control"
+                               value="{{ report.Development_qz }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">请选择项目负责人审核</label>
+                        <div>
+                            <select name="project" id="project" style="width: 600px">
+                                {% for staff in all_staff %}
+                                    {% if report.sqlcredential.staff == staff.username %}
+                                        <option selected value="{{ staff.id }}">{{ staff.username }}</option>
+                                    {% else %}
+                                        <option value="{{ staff.id }}">{{ staff.username }}</option>
+
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">请选择运维人员</label>
+                        <div>
+                            <select name="op" id="version" style="width: 600px">
+                                {% for staff in all_op %}
+                                    {% if report.sqlcredential.staff == staff.username %}
+                                        <option selected value="{{ staff.id }}">{{ staff.username }}</option>
+                                    {% else %}
+                                        <option value="{{ staff.id }}">{{ staff.username }}</option>
+
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+
+                        </div>
+                        <button class="btn btn-success" type="submit">提交</button>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="/static/laydate/laydate.js"></script>
+    <script>
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1',
+
+        });
+    </script>
+
+{% endblock %}

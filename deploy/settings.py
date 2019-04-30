@@ -24,7 +24,7 @@ SECRET_KEY = 's$-sp*=eshe(*%kj2#d%#p)pf&1z0_kpnt+bna(_mx*d@01^xb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'web.apps.WebConfig',
+    'rbac.apps.RbacConfig',
 ]
 
 MIDDLEWARE = [
@@ -119,8 +120,28 @@ STATIC_URL = '/static/'
 
 ###############免校验白名单#############
 
+
+###############继承django自带的auth功能######
+AUTH_USER_MODEL="web.Userinfo"  # 告诉djanjo用我自己定义的用户表，点前面的是django的项目名字，点后面的是表名
+# AUTH_USER_MODEL="rbac.Userinfo"  # 告诉djanjo用我自己定义的用户表，点前面的是django的项目名字，点后面的是表名
+
+# ############################ 权限+菜单相关配置 #############################
+# ############################ 权限+菜单相关配置 #############################
+RBAC_PERMISSION_SESSION_KEY = "ijksdufwesdfs"
+RBAC_MENU_SESSION_KEY = "rtwsdfgwerffsd"
+
 VALID_LIST = [
     '/login/',
-    '/check/code/',
+    '/logout/',
     '/admin/.*',
+    'http://127.0.0.1/login/',
+    '/check/code/',
+
 ]
+
+
+#权限列表
+PERMISSION_SESSION_KEY="permission_list"
+
+#菜单列表
+MENU_SESSION_KEY="menu_list"

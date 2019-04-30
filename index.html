@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    div{
+      width: 600px;
+      height: 50px;
+      margin: 0 auto;
+    }
+    ul{
+      list-style: none;
+    }
+    ul li span{
+      display: inline-block;
+      width: 100px;
+    }
+    input{
+      width: 100px;
+    }
+    .tpl{
+      display: none;
+    }
+  </style>
+  <script type="text/javascript" src="/deploy/web/static/js/jquery.min.js"></script>
+</head>
+<body>  
+  <div class="wrapper">
+     <ul>
+       <li>
+         <span>主机记录</span>
+         <span>类型</span>
+         <span>线路</span>
+         <span>记录值</span>
+       </li>
+       <li class="tpl">
+         <input type="text" name="">
+         <input type="text" name="">
+         <input type="text" name="">
+         <input type="text" name="">
+         <button>修改</button>
+       </li>
+       <li class="xh">
+         <span>testdh</span>
+         <span>A</span>
+         <span>默认</span>
+         <span>122.11.56.21</span>
+         <button class="xg">修改</button>
+       </li>
+       <li class="xh">
+         <span>testdh</span>
+         <span>A</span>
+         <span>默认</span>
+         <span>122.11.56.22</span>
+         <button class="xg">修改</button>
+       </li>
+     </ul>
+  </div>
+  <script type="text/javascript">
+    function gg(){
+        $(".xg").on('click', function(){
+           var $li = $(this).parent();
+           var $span = $li.find("span");
+
+           var input1 = $span.eq(0).text();
+           var input2 = $span.eq(1).text();
+           var input3 = $span.eq(2).text();
+           var input4 = $span.eq(3).text();
+
+           $li.empty();
+           $li.append($("<input text='text' value='" + input1 + "'>"));
+           $li.append($("<input text='text' value='" + input2 + "'>"));
+           $li.append($("<input text='text' value='" + input3 + "'>"));
+           $li.append($("<input text='text' value='" + input4 + "'>"));
+           $li.append("<button class='bz'>保存</button>");
+           bb();
+       });
+       
+
+    }
+     
+    function bb(){
+        $(".bz").on('click', function(){
+            var $li = $(this).parent();
+            var $span = $li.find("input");
+
+            var input1 = $span.eq(0).val();
+            var input2 = $span.eq(1).val();
+            var input3 = $span.eq(2).val();
+            var input4 = $span.eq(3).val();
+
+            $li.empty();
+            $li.append("<span>" + input1 + "</span>");
+            $li.append("<span>" + input2 + "</span>");
+            $li.append("<span>" + input3 + "</span>");
+            $li.append("<span>" + input4 + "</span>");
+            $li.append("<button class='xg'>修改</button>");
+            gg();
+        });
+        
+    }
+      
+    gg();
+  </script>
+</body>
+</html>

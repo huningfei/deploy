@@ -22,3 +22,15 @@
         </div>
     </form>
 {% endblock %}
+
+{% block js %}
+    <script src="/static/laydate/laydate.js"></script>
+    <script>
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#id_Apply_time',
+
+        });
+    </script>
+
+{% endblock %}

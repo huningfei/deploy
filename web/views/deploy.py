@@ -32,7 +32,7 @@ def deploy_list(request, project_id):
 
     project = models.Project.objects.filter(id=project_id).first()
 
-    return render(request, 'deploy_list.html', {'depart_queryset': depart_queryset, 'pager': pager, 'project': project})
+    return render(request, 'deploy/deploy_list.html', {'depart_queryset': depart_queryset, 'pager': pager, 'project': project})
 
 
 def deploy_add(request, project_id):
@@ -183,7 +183,7 @@ def deploy_push(request, project_id, deploy_id):
         deployed_host_dict = {item.host_id: item for item in deployed_host_list}  # 主机id：主机名
 
         # form = DeployPushForm(deploy_object.project)
-        return render(request, 'deploy_push.html',
+        return render(request, 'deploy/deploy_push.html',
                       {'deploy_object': deploy_object, 'all_host_list': all_host_list,
                        'deployed_host_dict': deployed_host_dict})
 
@@ -382,7 +382,7 @@ def deploy_rollback(request, project_id):
         project_time = models.Deploy.objects.filter(project_id=project_id).values('uid')  # 当前项目的所有版本
         rollback_host_dict = {item.host_id: item for item in deployed_host_list}  # 主机id：主机名
 
-        return render(request, 'deploy_rollback_list.html',
+        return render(request, 'deploy/deploy_rollback_list.html',
                       {'deploy_object': deploy_object, 'all_host_list': all_host_list,
                        'deployed_host_dict': rollback_host_dict, 'deploy_object_all': deploy_object_all,
                        'all_project_version': project_time, })

@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+{% load web %}
+{% block content %}
+    <h1>编辑上线单</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="title">上线项目(版本号)</label>
+                        <input type="text" id="title" name="Online_project" class="form-control"
+                               value="{{ report.Online_project }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">上线日期</label>
+                        <input type="text" id="test1" name="Online_time" class="form-control"
+                               value="{{ report.Online_time|date:"Y-m-d" }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">上线步骤（RD提供）</label>
+                        <textarea class="form-control" name="Online_step" id="content"
+                                  rows="20">{{ report.onlinedetails.Online_step }}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">回滚方案</label>
+                        <input type="text" id="title" name="Rollback_name" class="form-control"
+                               value="{{ report.Rollback_name }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">分支合并状态</label>
+                        <input type="text" id="title" name="Branch_status" class="form-control"
+                               value="{{ report.onlinedetails.Branch_status }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">代码修改后影响点</label>
+                        <input type="text" id="title" name="Influence" class="form-control"
+                               value="{{ report.onlinedetails.Influence }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">rd确认签字</label>
+                        <input type="text" id="title" name="Rd_qz" class="form-control" value="{{ report.Rd_qz }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">部分总监/负责人签字</label>
+                        <input type="text" id="title" name="Zj_qz" class="form-control" value="{{ report.Zj_qz }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">项目重要功能(测试签字)</label>
+                        <input type="text" id="title" name="Test_qz" class="form-control" value="{{ report.Test_qz }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">运维签字</label>
+                        <input type="text" id="title" name="Op_qz" class="form-control" value="{{ report.Op_qz }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">UI签字</label>
+                        <input type="text" id="title" name="Ui_qz" class="form-control" value="{{ report.Ui_qz }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">PM,UE签字</label>
+                        <input type="text" id="title" name="Pm_qz" class="form-control" value="{{ report.Pm_qz }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">上线回归结果（测试及产品签字）</label>
+                        <input type="text" id="title" name="Rallback_result" class="form-control"
+                               value="{{ report.Rallback_result }}">
+                    </div>
+
+                    <button class="btn btn-success" type="submit">发布</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="/static/laydate/laydate.js"></script>
+    <script>
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1',
+
+        });
+    </script>
+
+{% endblock %}

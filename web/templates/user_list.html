@@ -10,6 +10,7 @@
         <tr>
             <th>用户名</th>
             <th>SSH账号</th>
+            <th>角色</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -18,6 +19,7 @@
             <tr>
                 <td>{{ row.username }}</td>
                 <td>{{ row.server_name }}</td>
+                <td>{{ row.jobs }}</td>
                 <td>
                     <a href="{% memory_url request 'user_edit' row.id %}">编辑</a>
                     <a href="{% memory_url request 'user_del' row.id %}">删除</a>

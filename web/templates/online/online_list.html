@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% load web %}
+{% load rbac %}
+{% block content %}
+    <h1>上线单列表</h1>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>上线项目(版本号)</th>
+            <th>上线日期</th>
+            <th>申请人</th>
+            <th>状态</th>
+            <th>审核编辑</th>
+
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in depart_queryset %}
+            <tr>
+
+                <td>{{ row.Online_project }}</td>
+                <td>{{ row.Online_time|date:"Y-m-d" }}</td>
+                <td>{{ row.Rd_qz}}</td>
+                <td>{{ row.get_status_display }}</td>
+                <td>
+                    {% if "online_edit"|permission:request %}
+                        <a class="btn btn-info" href="{% memory_url request 'online_edit' row.id %}">开发</a>
+                    {% endif %}
+                    {% if "project_online_edit"|permission:request %}
+                        <a class="btn btn-warning" href="{% memory_url request 'project_online_edit' row.id %}">项目负责人</a>
+                     {% endif %}
+                     {% if "test_online_edit"|permission:request %}
+                        <a class="btn btn-success" href="{% memory_url request 'test_online_edit' row.id %}">测试</a>
+                     {% endif %}
+                     {% if "op_online_edit"|permission:request %}
+                        <a class="btn btn-danger"  href="{% memory_url request 'op_online_edit' row.id %}"   >运维</a>
+                     {% endif %}
+                     {% if "pm_online_edit"|permission:request %}
+                        <a class="btn btn-default" href="{% memory_url request 'pm_online_edit' row.id %}">产品</a>
+                     {% endif %}
+                </td>
+
+                <td>
+
+                    {% if "online_del"|permission:request %}
+
+                        <a href="{% memory_url request 'online_del' row.id %}">删除</a>
+                    {% endif %}
+
+                    <a href="{% memory_url request 'online_detail' row.id %}">查看详情</a>
+
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {{ pager.page_html|safe }}
+        </ul>
+    </nav>
+{% endblock %}

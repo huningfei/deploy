@@ -15,20 +15,27 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from web.views import account
+from web.views import accounts
 from web.views import project
 from web.views import depart
 from web.views import host
 from web.views import user
 from web.views import deploy
 from web.views import script
+from web.views import online
+from web.views import database
+from web.views import online_detail
+# from web import urls as online_urls  # 二级路由
 
 urlpatterns = [
+    url(r'^$', accounts.login),
     url(r'^admin/', admin.site.urls),
-    url(r'^login/$', account.login, name='login'),
+    url(r'^login/$', accounts.login, name='login'),
+
+    # url(r'^accounts/login/$', accounts.login, name='login'),
     # 注销
-    url(r'^logout/$',account.logout),
-    url(r'^check/code/$', account.check_code, name='check_code'),  # 验证码路径
+    url(r'^logout/$', accounts.logout),
+    url(r'^check/code/$', accounts.check_code, name='check_code'),  # 验证码路径
 
     # 部门url
     url(r'^depart/list/$', depart.depart_list, name='depart_list'),
@@ -57,9 +64,6 @@ urlpatterns = [
     url(r'^deploy/edit/(?P<project_id>\d+)/(?P<nid>\d+)/$', deploy.deploy_edit, name='deploy_edit'),
     url(r'^deploy/del/(?P<project_id>\d+)/(?P<nid>\d+)/$', deploy.deploy_del, name='deploy_del'),
     # url(r'^deploy/rollback/(?P<project_id>\d+)/(?P<nid>\d+)/$', deploy.deploy_rollback, name='deploy_rollback'),
-
-
-
     # 拉代码
     url(r'^deploy/fetch/(?P<project_id>\d+)/(?P<deploy_id>\d+)/$', deploy.deploy_fetch, name='deploy_fetch'),
     # 上传代码
@@ -75,5 +79,41 @@ urlpatterns = [
     url(r'^script/list/$',script.script_list,name='script_list'),
     url(r'^script/add/$',script.script_add,name='script_add'),
     url(r'^script/edit/(\d+)/$',script.script_edit,name='script_edit'),
-    url(r'^script/del/(\d+)/$',script.script_del,name='script_del')
+    url(r'^script/del/(\d+)/$',script.script_del,name='script_del'),
+
+    # 上线单列表
+    url(r'^online/list/$', online.online_list, name='online_list'),
+    # 查看上线单详情
+    url(r'^online/details/(\d+)/$', online_detail.online_detail,name="online_detail"),
+    # 开发编辑上线单
+    url(r'^online/edit/(\d+)/$', online_detail.online_edit,name="online_edit"),
+    # 项目负责人审核上线单
+    url(r'^project/online/edit/(\d+)/$', online_detail.project_online_edit,name="project_online_edit"),
+    # 测试审核上线单
+    url(r'^test/online/edit/(\d+)/$', online_detail.test_online_edit,name="test_online_edit"),
+    # 运维审核上线单
+    url(r'^op/online/edit/(\d+)/$', online_detail.op_online_edit,name="op_online_edit"),
+    # 产品审核上线单
+    url(r'^pm/online/edit/(\d+)/$', online_detail.pm_online_edit,name="pm_online_edit"),
+    # 删除上线单
+    url(r'^online/del/(\d+)/$', online_detail.online_del,name="online_del"),
+    # 添加上线单
+    url(r'^online/add/$', online_detail.online_add,name="online_add"),
+    #数据库列表
+    url(r'^database/list/$', database.database_list, name='database_list'),
+    # 添加数据库修改申请单
+    url(r'^database/add/$', database.database_add,name="database_add"),
+
+    # 查看数据库申请单详情
+    url(r'^database/details/(\d+)/$', database.database_detail,name="database_detail"),
+    # 开发编辑数据库申请单
+    url(r'^database/edit/(\d+)/$', database.database_edit, name="database_edit"),
+    # 项目负责人审核数据库申请单
+    url(r'^project_database/edit/(\d+)/$', database.project_database_edit, name="project_database_edit"),
+    # 运维审核数据库申请单
+    url(r'^op_database/edit/(\d+)/$', database.op_database_edit, name="op_database_edit"),
+    # 删除数据库申请单
+    url(r'^database/del/(\d+)/$', database.database_del,name="database_del"),
+
+
 ]
