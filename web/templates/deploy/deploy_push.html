@@ -9,9 +9,15 @@
             $("[data-toggle='popover']").popover();
         });
 
-
+        $(".btnLoad").click(
+            function () {
+                $(".loading").addClass("active")
+            }
+        );
+        console.log(111111111111111111111111)
     </script>
 {% endblock %}
+
 
 {% block content %}
     <div class="luffy-container">
@@ -21,7 +27,7 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <i class="fa fa-book" aria-hidden="true"></i>发布信息
-                    <button href="" class="right btn btn-primary btn-xs" style="padding: 2px 8px;margin:-3px">
+                    <button href="" class="right btn btn-primary btn-xs btnLoad" style="padding: 2px 8px;margin:-3px">
                         <i class="fa fa-mail-forward" aria-hidden="true"></i>
                         发布
 
@@ -86,5 +92,8 @@
 
 
         </form>
+    </div>
+    <div class="loading">
+        <img src="/static/imgs/loading.gif"/>
     </div>
 {% endblock %}

@@ -18,7 +18,8 @@ def init_permission(user,request):
         'permissions__parent_id',  # 父权限相关
         'permissions__parent__name'
     )
-    
+
+
     # 2.3 获取当前用户拥有的所有权限信息 + 获取当前用户拥有的所有权限信息
     permission_dict = {}
     menu_dict = {}

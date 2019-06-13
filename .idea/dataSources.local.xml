@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="db" uuid="30f44278-4e6e-4e9e-a5da-74d77e32ccdf">
-      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1" dbms="SQLITE" exact-version="3.25.1">
+    <data-source name="db" uuid="bc1fe44c-e144-4200-838b-36a57aa690ef">
+      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1" family="SQLITE" exact-version="3.25.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />

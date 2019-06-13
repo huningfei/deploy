@@ -15,7 +15,13 @@
 
         $(function () {
             $('[data-toggle="popover"]').popover()
-        })
+        });
+
+        $(".btnLoad").click(
+            function () {
+                $(".loading").addClass("active")
+            }
+        );
     </script>
 {% endblock %}
 
@@ -30,7 +36,7 @@
 
                 <div class="panel-heading">
                     <i class="fa fa-book" aria-hidden="true"></i>回滚信息
-                    <button href="" class="right btn btn-primary btn-xs" style="padding: 2px 8px;margin:-3px">
+                    <button href="" class="right btn btn-primary btn-xs btnLoad" style="padding: 2px 8px;margin:-3px">
                         <i class="fa fa-mail-forward" aria-hidden="true"></i>
                         回滚
 
@@ -88,12 +94,11 @@
                             <td>{% rollback_status host.id deployed_host_dict %}</td>
 
 
-
                             <td>
                                 {% host_datetime host.id deployed_host_dict %}
 
                             </td>
-                                 <td>
+                            <td>
 
                                 <button type="button" class="btn btn-info" data-container="body"
                                         data-toggle="popover" data-placement="bottom"
@@ -111,15 +116,10 @@
                 </table>
             </div>
 
-            {#            <div>#}
-            {#                {{ form.hosts }}#}
-            {#            </div>#}
-            {#            <div class="form-group">#}
-            {#                <div class="col-sm-offset-2 col-sm-9">#}
-            {#                    <input type="submit" class="btn btn-primary" value="发 布">#}
-            {#                    <span style="color: red;">{{ form.hosts.errors.0 }}</span>#}
-            {#                </div>#}
-            {#            </div>#}
+
         </form>
+    </div>
+    <div class="loading">
+        <img src="/static/imgs/loading.gif"/>
     </div>
 {% endblock %}

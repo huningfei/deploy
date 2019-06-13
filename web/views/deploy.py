@@ -96,7 +96,7 @@ def deploy_fetch(request, project_id, deploy_id):
     :param deploy_id: 部署id
     :return:
     """
-    # print(request.user.git_name)
+    print(request.user.git_name)
     # print(request.user.git_pwd)
     # 部署的是那个项目
     deploy_object = models.Deploy.objects.filter(id=deploy_id, project_id=project_id).first()
@@ -119,6 +119,7 @@ def deploy_fetch(request, project_id, deploy_id):
         if deploy_object.project.private:
             protcal, addr = deploy_object.project.git.split("//", maxsplit=1)
             git_addr = "%s//%s:%s@%s" % (protcal, request.user.git_name, request.user.git_pwd, addr)
+
 
         else:
             git_addr = deploy_object.project.git
@@ -211,12 +212,14 @@ def deploy_push(request, project_id, deploy_id):
 
         record_object, is_new = create_deploy_record()  # 调用这个函数
 
+
         # 2 推送
         def push_code():
             status = False
             try:
 
                 private_key = paramiko.RSAKey(file_obj=StringIO(request.user.server_private_key))  # 获取用户私钥
+                print('私钥',private_key)
 
                 transport = paramiko.Transport((host_object.hostname, host_object.ssh_port))  # 主机名和端口号
 

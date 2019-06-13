@@ -142,8 +142,11 @@ class Sqlcredential(models.Model):
     数据库修改
     """
     database_name=models.CharField(verbose_name="修改库名",max_length=256)
-    Apply_time=models.DateTimeField(verbose_name="申请日期",)
+    Apply_time=models.DateTimeField(verbose_name="申请日期")
     sql_yj=models.TextField(verbose_name='SQL语句',max_length=1024)
+    select_project = models.CharField(verbose_name='选择项目负责人审核', max_length=128)
+    select_test = models.CharField(verbose_name='指定测试审核', max_length=128)
+    select_op = models.CharField(verbose_name='指定运维审核', max_length=128)
     Rollback_name=models.CharField(verbose_name='回滚方案',max_length=128)
     Development_qz=models.CharField(verbose_name='开发签字',max_length=128)
     Project_qz=models.CharField(verbose_name='项目负责人签字',max_length=128)
@@ -151,8 +154,8 @@ class Sqlcredential(models.Model):
     op_qz=models.CharField(verbose_name='运维签字',max_length=256)
     Project_confirm_qz = models.CharField(verbose_name='项目负责人确认签字', max_length=128)
     status_choices = ((1, '提交更新'),
-                      (2, '负责人审核'),
-                      (3, '运维操作'),
+                      (2, '负责人审核通过'),
+                      (3, '运维上线完成'),
                       (4, '否决上线'),
                       (5, '回滚'),
                       (6, '流程结束'))
@@ -167,16 +170,12 @@ class Onlinedetails(models.Model):
     # Online_time = models.DateTimeField(verbose_name="上线日期", max_length=256, blank=True,null=True)
 
 
-    Online_step = models.TextField(verbose_name="上线步骤",null=True)
-    Branch_status = models.CharField(verbose_name='分支合并状态', max_length=256,null=True)
-    Influence = models.CharField(verbose_name='代码修改影响点', max_length=256,null=True)
-    details = models.OneToOneField(to="Onlinelist", on_delete=models.CASCADE, null=True)
+    Online_step = models.TextField(verbose_name="上线步骤")
+    Branch_status = models.CharField(verbose_name='分支合并状态', max_length=256)
+    Influence = models.CharField(verbose_name='代码修改影响点', max_length=256)
+    details = models.OneToOneField(to="Onlinelist", on_delete=models.CASCADE)
     # staff = models.OneToOneField(to="Staff", on_delete=models.CASCADE)
-    staff = models.ForeignKey(to="UserInfo", on_delete=models.CASCADE,null=True) #项目负责人
-
-
-
-
+    staff = models.ForeignKey(to="UserInfo", on_delete=models.CASCADE) #项目负责人
 
     class Meta:
         verbose_name = "上线单详情表"
@@ -187,49 +186,29 @@ class Onlinelist(models.Model):
     """
     Online_project = models.CharField(verbose_name="上线项目(版本号)", max_length=256, blank=True)
     Online_time = models.DateTimeField(verbose_name="上线日期", max_length=256, blank=True)
-    Rollback_name = models.CharField(verbose_name='回滚方案', max_length=128, null=True)
-    Op_qz = models.CharField(verbose_name='运维签字', max_length=256, null=True)
-    Rd_qz = models.CharField(verbose_name='rd签字', max_length=256, null=True)
-    Test_qz = models.CharField(verbose_name='测试签字', max_length=256, null=True)
-    Ui_qz = models.CharField(verbose_name='ui签字', max_length=256, null=True)
-    Pm_qz = models.CharField(verbose_name='产品签字', max_length=256, null=True)
-    Zj_qz = models.CharField(verbose_name='总监签字', max_length=256, null=True)
-    Rallback_result = models.CharField(verbose_name='回归结果测试产品签字', max_length=256, null=True)
+    Rollback_name = models.CharField(verbose_name='回滚方案', max_length=128,)
+    select_project= models.CharField(verbose_name='选择项目负责人审核', max_length=128,)
+    select_test= models.CharField(verbose_name='指定测试审核', max_length=128,)
+    select_op= models.CharField(verbose_name='指定运维审核', max_length=128)
+    Op_qz = models.CharField(verbose_name='运维签字', max_length=256)
+    Rd_qz = models.CharField(verbose_name='rd签字', max_length=256)
+    Test_qz = models.CharField(verbose_name='测试签字', max_length=256)
+    Ui_qz = models.CharField(verbose_name='ui签字', max_length=256)
+    Pm_qz = models.CharField(verbose_name='产品签字', max_length=256)
+    Zj_qz = models.CharField(verbose_name='总监签字', max_length=256)
+    Rallback_result = models.CharField(verbose_name='回归结果测试产品签字', max_length=256)
     status_choices = ((1, '提交更新'),
-                      (2, '负责人审核'),
+                      (2, '负责人审核通过'),
                       (3, '预上线'),
-                      (4, '代码上线'),
+                      (4, '代码上线完成'),
                       (5, '回归中'),
                       (6, '回归完成'),
                       (7, '回滚'),
                       (8, '否决上线'),
                       (9, '流程结束'))
     status = models.IntegerField(verbose_name='状态', choices=status_choices, default=1)
-    # test = models.OneToOneField(to="UserInfo", on_delete=models.CASCADE, null=True)  # 测试
-    # op = models.OneToOneField(to="UserInfo", on_delete=models.CASCADE, null=True)  # 运维
-    # project = models.OneToOneField(to="UserInfo", on_delete=models.CASCADE, null=True)  # 项目负责人
-    # pm=models.OneToOneField(to="UserInfo", on_delete=models.CASCADE, null=True) # 产品
-    # ui=models.OneToOneField(to="UserInfo", on_delete=models.CASCADE, null=True)
 
 
-
-# class Staff(models.Model):
-#     """
-#     员工详情表
-#     """
-#     wechat_user = models.CharField(u'微信用户名', max_length=64)
-#     email = models.EmailField(u'邮箱', max_length=64)
-#     name = models.CharField(u'姓名', max_length=64)
-#     jobs = models.CharField(u'工作职位', max_length=64)
-#     login_password = models.ForeignKey("UserInfo", on_delete=models.CASCADE,related_name="staff")
-#     # Online = models.ForeignKey("Onlinelist", on_delete=models.CASCADE,null=True)
-#
-#     def __str__(self):  # 页面显示详细信息需要写这个
-#         return self.name
-#
-#     class Meta:  # 表名显示中文
-#         verbose_name = "staff表"
-#         verbose_name_plural = verbose_name  # 复数的意思，如果不加这个后面会多个s
 
 
 

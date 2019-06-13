@@ -36,17 +36,22 @@
                                value="{{ report.onlinedetails.Branch_status }}">
                     </div>
                     <div class="form-group">
-                        <label for="title">代码修改后影响点（RD签字）</label>
+                        <label for="title">代码修改后影响点</label>
                         <input type="text" id="title" name="Influence" class="form-control"
                                value="{{ report.onlinedetails.Influence }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">rd确认签字</label>
+                        <input type="text" id="title" name="Rd_qz" class="form-control" value="{{ report.Rd_qz }}">
                     </div>
 
                     <div class="form-group">
                         <label for="title">请选择项目负责人审核</label>
                         <div>
-                            <select name="version" id="version" style="width: 1140px; height: 30px"  >
+                            <select name="version" id="version" style="width: 1140px; height: 30px">
                                 {% for deploy in all_staff %}
-                                    <option value="{{ deploy.username }}" selected="selected">{{ deploy.username }} </option>
+                                    <option value="{{ deploy.username }}"
+                                            selected="selected">{{ deploy.username }} </option>
 
                                 {% endfor %}
                             </select>
@@ -54,12 +59,13 @@
                         </div>
 
                     </div>
-                       <div class="form-group">
+                    <div class="form-group">
                         <label for="title">请选择测试人员测试</label>
                         <div>
                             <select name="test" id="version" style="width: 1140px; height: 30px">
                                 {% for deploy in all_test %}
-                                    <option value="{{ deploy.username }}" selected="selected">{{ deploy.username }} </option>
+                                    <option value="{{ deploy.username }}"
+                                            selected="selected">{{ deploy.username }} </option>
 
                                 {% endfor %}
                             </select>
@@ -67,12 +73,13 @@
                         </div>
 
                     </div>
-                       <div class="form-group">
+                    <div class="form-group">
                         <label for="title">请选择运维人员上线</label>
                         <div>
-                            <select name="op" id="version"style="width: 1140px; height: 30px">
+                            <select name="op" id="version" style="width: 1140px; height: 30px">
                                 {% for deploy in all_op %}
-                                    <option value="{{ deploy.username }}" selected="selected">{{ deploy.username }} </option>
+                                    <option value="{{ deploy.username }}"
+                                            selected="selected">{{ deploy.username }} </option>
 
                                 {% endfor %}
                             </select>
@@ -80,7 +87,7 @@
                         </div>
 
                     </div>
-                 <button class="btn btn-success" type="submit">发布</button>
+                    <button class="btn btn-success" type="submit">发布</button>
 
 
                 </form>

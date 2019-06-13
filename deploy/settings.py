@@ -134,7 +134,7 @@ VALID_LIST = [
     '/login/',
     '/logout/',
     '/admin/.*',
-    'http://127.0.0.1/login/',
+
     '/check/code/',
 
 ]

@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.urls import reverse
+from django.conf import settings
 from web import models
 from web.utils.check_code import gen_check_code
 from io import BytesIO
@@ -30,22 +31,24 @@ def login(request):
 
     code = request.POST.get('code') # 获取网页上面显示的验证码
     check_code = request.session.get('check_code') # 用户输入的验证码
-
+    print('ddddddddddddddd')
     if not code:
         return render(request, 'login.html', {'error': '请输入验证码'})
     if code.upper() != check_code.upper():
         return render(request, 'login.html', {'error': '验证码错误'})
     user = request.POST.get('username')
     pwd = request.POST.get('password')
-    print(user,pwd)
+
     # user_object = models.UserInfo.objects.filter(username=user, password=pwd).first()
     user_object = rbac_model.UserInfo.objects.filter(username=user, password=pwd).first()
-    # print(user_object)
+
     # user_object=auth.authenticate(request, username=user, password=pwd)
 
     if not user_object:
         return render(request, 'login.html', {'error': '用户名或密码错误'})
     request.session['user_id'] = user_object.id  # 登录成功之后将用户信息保存到session里面
+    # print('sessin', user_object)
+
     init_permission(user_object, request)
     return redirect(reverse('online_list'))
     # return redirect('/online/list/')
@@ -93,5 +96,7 @@ def check_code(request):
 
 def logout(request):
     auth.logout(request)
+
     return redirect("/login/")
+
 

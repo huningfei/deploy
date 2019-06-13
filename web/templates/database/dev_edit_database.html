@@ -42,7 +42,7 @@
                         <div>
                             <select name="project" id="project" style="width: 600px">
                                 {% for staff in all_staff %}
-                                    {% if report.sqlcredential.staff == staff.username %}
+                                    {% if report.select_project == staff.username %}
                                         <option selected value="{{ staff.id }}">{{ staff.username }}</option>
                                     {% else %}
                                         <option value="{{ staff.id }}">{{ staff.username }}</option>
@@ -58,9 +58,9 @@
                     <div class="form-group">
                         <label for="title">请选择运维人员</label>
                         <div>
-                            <select name="op" id="version" style="width: 600px">
+                            <select name="op" id="op" style="width: 600px">
                                 {% for staff in all_op %}
-                                    {% if report.sqlcredential.staff == staff.username %}
+                                    {% if report.select_op == staff.username %}
                                         <option selected value="{{ staff.id }}">{{ staff.username }}</option>
                                     {% else %}
                                         <option value="{{ staff.id }}">{{ staff.username }}</option>

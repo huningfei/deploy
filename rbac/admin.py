@@ -2,6 +2,8 @@ from django.contrib import admin
 from rbac import models
 
 
+
+
 admin.site.register(models.Menu)
 # admin.site.register(models.Permission)
 admin.site.register(models.Role)
@@ -15,6 +17,6 @@ admin.site.register(models.Permission,PermissionAdmin)
 
 
 class UserinfoAdmin(admin.ModelAdmin):
-    list_display = ["username", "password", "email", "wechat_user","jobs",]
+    list_display = ["username", ("password"), "email", "wechat_user","jobs",]
     list_editable = ["password","wechat_user","email"]
 admin.site.register(models.UserInfo,UserinfoAdmin)

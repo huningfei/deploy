@@ -1,8 +1,8 @@
 import re
 from django.utils.deprecation import MiddlewareMixin
 from django.conf import settings
-from django.shortcuts import HttpResponse,render
-
+from django.shortcuts import HttpResponse,render,redirect
+from rbac import models as rbac_model
 
 class RBACMiddleware(MiddlewareMixin):
     """
@@ -23,9 +23,16 @@ class RBACMiddleware(MiddlewareMixin):
         for valid in settings.VALID_LIST:
             if re.match(valid,current_url):
                 return None
+        # 获取当前登录的用户
+        user_id = request.session.get('user_id')
+        if not user_id:
+            return redirect('/login/')
+        user_object = rbac_model.UserInfo.objects.filter(id=user_id).first()  # 获取当前登录用户的对象
+        request.user = user_object
             
         # 2. 获取权限信息
         permission_dict = request.session.get(settings.RBAC_PERMISSION_SESSION_KEY)
+
         if not permission_dict:
             return HttpResponse('当前用户无权限信息，请重新登录！')
         """

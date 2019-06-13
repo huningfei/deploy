@@ -50,10 +50,10 @@
                         <label for="title">请选择项目负责人审核</label>
 
                         <div>
-                            <select name="project"  style="width: 600px">
+                            <select name="project" id="project" style="width: 600px">
                                 {% for staff in all_staff %}
 
-                                    {% if report.Zj_qz == staff.username %}
+                                    {% if report.select_project == staff.username %}
                                         <option selected value="{{ staff.id }}">{{ staff.username }}</option>
                                     {% else %}
                                         <option value="{{ staff.id }}">{{ staff.username }}</option>
@@ -68,9 +68,9 @@
                     <div class="form-group">
                         <label for="title">请选择测试人员</label>
                         <div>
-                            <select name="test" id="version" style="width: 600px">
+                            <select name="test" id="test" style="width: 600px">
                                 {% for staff in all_test %}
-                                    {% if report.Test_qz == staff.username %}
+                                    {% if report.select_test == staff.username %}
                                         <option selected value="{{ staff.id }}">{{ staff.username }}</option>
                                     {% else %}
                                         <option value="{{ staff.id }}">{{ staff.username }}</option>
@@ -86,9 +86,9 @@
                     <div class="form-group">
                         <label for="title">请选择运维人员</label>
                         <div>
-                            <select name="op" id="version" style="width: 600px">
+                            <select name="op" id="op" style="width: 600px">
                                 {% for staff in all_op %}
-                                    {% if report.Op_qz == staff.username %}
+                                    {% if report.select_op == staff.username %}
                                         <option selected="selected" value="{{ staff.id }}">{{ staff.username }}</option>
                                     {% else %}
                                         <option  value="{{ staff.id }}">{{ staff.username }}</option>
