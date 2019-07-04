@@ -1,0 +1,12 @@
+body {
+    background: url(../imgs/bg3.jpg)  no-repeat center 0 ;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+label{
+    font-size: 18px;
+    color: white;
+}
