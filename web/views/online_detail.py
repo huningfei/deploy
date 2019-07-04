@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from web.forms.develop import OnlinelistModelForm
+# from web.forms.develop import OnlinelistModelForm
 from web.forms.online import OnlineModelForm
 from web import models
 from rbac import models as rbac_model  # 导入rbac里面的用户表
@@ -16,6 +16,23 @@ from web.utils.send_mail import Op_mail  # 导入运维邮件
 from web.utils.send_mail import Pm_mail  # 导入产品邮件
 import json
 
+def online_list(request):
+    """
+    上线单列表
+    :param request:
+    :return:
+    """
+    # 要查看的页码
+    page = request.GET.get('page', 1)
+
+    # 数据库中数据总条数
+    total_count = models.Onlinedetails.objects.all().count()
+
+    # 数据库中获取即可
+    pager = Pagination(page,total_count,request.path_info)
+    depart_queryset = models.Onlinedetails.objects.all()[pager.start :pager.end]
+
+    return render(request, 'online/online_list.html', {'depart_queryset':depart_queryset, 'pager':pager})
 
 def online_detail(request, online_id):
     """
@@ -25,7 +42,7 @@ def online_detail(request, online_id):
     """
 
     # 数据库中数据总条数
-    total_count = models.Onlinelist.objects.filter(id=online_id).first()
+    total_count = models.Onlinedetails.objects.filter(id=online_id).first()
     print(total_count)
     if not total_count:
         return HttpResponse("404")
@@ -76,29 +93,26 @@ def online_add(request):
             # 遍历所有的script标签，删除掉
             i.decompost()
 
-        with transaction.atomic():
-            # 先创建一条上线列表
-            report_obj = models.Onlinelist.objects.create(
-                Online_project=request.POST.get("Online_project"),
-                Online_time=request.POST.get("Online_time"),
-                Rd_qz=request.POST.get("Rd_qz"),
 
-                select_op=op_str,
-                select_test=test_str,
-                select_project=staff_str,
+        # 先创建一条上线列表
+        report_obj = models.Onlinedetails.objects.create(
+            Online_project=request.POST.get("Online_project"),
+            Online_time=request.POST.get("Online_time"),
+            Rd_qz=request.POST.get("Rd_qz"),
 
-                Rollback_name=request.POST.get("Rollback_name"),
+            select_op=op_str,
+            select_test=test_str,
+            select_project=staff_str,
 
-            )
-            # 创建一条上线单详情
-            models.Onlinedetails.objects.create(
-                Online_step=soup.prettify(),  # 格式化完整的html内容
-                Branch_status=request.POST.get("Branch_status"),
-                Influence=request.POST.get("Influence"),
-                staff_id=id,  # 关联员工表
-                details_id=report_obj.id  # 关联上线单列表
-            )
-            return redirect("/online/list/")
+            Rollback_name=request.POST.get("Rollback_name"),
+            Online_step=soup.prettify(),  # 格式化完整的html内容
+            Branch_status=request.POST.get("Branch_status"),
+            Influence=request.POST.get("Influence"),
+            staff_id=id,  # 关联员工表
+
+        )
+
+        return redirect("/online/list/")
         # url=request.get_full_path()
         # print(url)
         # staff = models.UserInfo.objects.all()
@@ -112,13 +126,13 @@ def online_add(request):
 
 def online_edit(request, report_id):
     """
-    编辑上线单详情页面
+    开发编辑上线单详情页面
     :param request:
     :param report_id:
     :return:
     """
     if request.method == "POST":
-        online_obj=models.Onlinelist.objects.filter(id=report_id)
+        online_obj = models.Onlinedetails.objects.filter(id=report_id)
         new_online_project = request.POST.get("Online_project"),
         new_online_time = request.POST.get("Online_time"),
         # print(new_online_project)
@@ -133,11 +147,10 @@ def online_edit(request, report_id):
         new_branch_status = request.POST.get("Branch_status"),
         new_influence = request.POST.get("Influence"),
 
-
         new_online_step = request.POST.get("Online_step")
         soup = BeautifulSoup(new_online_step, "html.parser")
 
-        staff = request.POST.getlist('project') # 获取html页面选择的负责人的id是列表格式
+        staff = request.POST.getlist('project')  # 获取html页面选择的负责人的id是列表格式
 
         test = request.POST.getlist("test")
 
@@ -147,15 +160,15 @@ def online_edit(request, report_id):
         op_str = ' '.join(op)
         test_str = ' '.join(test)
         # 根据用户id取出用户名字是字典格式
-        project_dict=rbac_model.UserInfo.objects.filter(id=staff_str).values('username').first() # 字典格式
-        test_dict=rbac_model.UserInfo.objects.filter(id=test_str).values('username').first()
-        op_dict=rbac_model.UserInfo.objects.filter(id=op_str).values('username').first()
+        project_dict = rbac_model.UserInfo.objects.filter(id=staff_str).values('username').first()  # 字典格式
+        test_dict = rbac_model.UserInfo.objects.filter(id=test_str).values('username').first()
+        op_dict = rbac_model.UserInfo.objects.filter(id=op_str).values('username').first()
         # 取出每个用户的名字
-        project_name=project_dict['username'] # 取出username
-        test_name=test_dict['username']
-        op_name=op_dict['username']
+        project_name = project_dict['username']  # 取出username
+        test_name = test_dict['username']
+        op_name = op_dict['username']
 
-         #根据名字取出对应的email地址
+        # 根据名字取出对应的email地址
         email_dict = rbac_model.UserInfo.objects.filter(id=staff_str).values('email').first()  # 获取员工email地址
         email1 = rbac_model.UserInfo.objects.filter(id=staff_str).values('email').first()  # 获取员工email地址
         email2 = rbac_model.UserInfo.objects.filter(id=test_str).values('email').first()  # 获取员工email地址
@@ -168,39 +181,35 @@ def online_edit(request, report_id):
         email3 = json.dumps(email3['email'])  # 员工的邮箱
 
         # 给这个邮箱地址发送一封邮件，告诉他有任务要处理
-        my_user = Mail(email2,email1,email3)  # 实例化
+        my_user = Mail(email2, email1, email3)  # 实例化
         my_user.mail()  # 发送邮件
-
 
         # 把提交的内容包含有script的标签清洗掉
         for i in soup.find_all("script"):
             # 遍历所有的script标签，删除掉
             i.decompost()
-        with transaction.atomic():
-            report_obj = models.Onlinelist.objects.filter(id=report_id).update(
-                Online_project=request.POST.get("Online_project"),
-                Online_time=request.POST.get("Online_time"),
-                Rd_qz=request.POST.get("Rd_qz"),
-                select_op=op_name,
-                select_test=test_name,
 
-                select_project=project_name,
-                Rallback_result=request.POST.get("Rallback_result"),
-                Rollback_name=request.POST.get("Rollback_name"),
+        report_obj = models.Onlinedetails.objects.filter(id=report_id).update(
+            Online_project=request.POST.get("Online_project"),
+            Online_time=request.POST.get("Online_time"),
+            Rd_qz=request.POST.get("Rd_qz"),
+            select_op=op_name,
+            select_test=test_name,
 
-            )
-            # 创建一条故障总结详情记录,当你用了.first的时候不能用.update了，queeyset才可以用.update
-            models.Onlinedetails.objects.filter(details_id=report_id).update(
-                Branch_status=request.POST.get("Branch_status"),
-                Influence=request.POST.get("Influence"),
-                Online_step=soup.prettify(),  # 格式化完整的html内容
-                details_id=report_id,
-                staff_id=id,
-            )
+            select_project=project_name,
+            Rallback_result=request.POST.get("Rallback_result"),
+            Rollback_name=request.POST.get("Rollback_name"),
+            Branch_status=request.POST.get("Branch_status"),
+            Influence=request.POST.get("Influence"),
+            Online_step=soup.prettify(),  # 格式化完整的html内容
+            details_id=report_id,
+            staff_id=id,
+
+        )
 
         return redirect("/online/list/")
 
-    report_obj = models.Onlinelist.objects.filter(id=report_id).first()
+    report_obj = models.Onlinedetails.objects.filter(id=report_id).first()
 
     staff = rbac_model.UserInfo.objects.filter(jobs='项目负责人')
 
@@ -208,15 +217,13 @@ def online_edit(request, report_id):
 
     op = rbac_model.UserInfo.objects.filter(jobs='运维')  # 只列出项目负责人的名字
 
-
     return render(request, "dev/dev_edit_online.html",
                   {'report': report_obj, 'all_staff': staff, "all_test": test, "all_op": op})
 
 
-
 def online_del(request, report_id):
     with transaction.atomic():
-        models.Onlinelist.objects.filter(id=report_id).delete()
+        models.Onlinedetails.objects.filter(id=report_id).delete()
         # 创建一条故障总结详情记录
         models.Onlinedetails.objects.filter(details_id=report_id).delete()
     return redirect("/online/list/")
@@ -234,20 +241,19 @@ def project_online_edit(request, report_id):
         print(url)
 
         new_zj_qz = request.POST.get("Zj_qz"),  # 项目负责人签字
-        report_obj = models.Onlinelist.objects.filter(id=report_id).update(
+        report_obj = models.Onlinedetails.objects.filter(id=report_id).update(
 
             Zj_qz=request.POST.get("Zj_qz"),
 
         )
-        zj = models.Onlinelist.objects.filter(id=report_id).values('Zj_qz').first()  # 判断项目负责人是否签字是一个字典格式
-        print('fffffffffffffff',zj)
+        zj = models.Onlinedetails.objects.filter(id=report_id).values('Zj_qz').first()  # 判断项目负责人是否签字是一个字典格式
+        print('fffffffffffffff', zj)
         is_null = zj['Zj_qz']  # 获取项目负责人是否签字是字符串格式
         print(is_null)
 
-
-        if is_null == '':  # 如果项目负责人没有签字则发送邮件告知rd,没有通过审核
+        if is_null =='':  # 如果项目负责人没有签字则发送邮件告知rd,没有通过审核
             try:
-
+                print(ok)
 
                 user = request.POST.get("Rd_qz")  # 获取申请人的用户名
                 rd_email_dict = rbac_model.UserInfo.objects.filter(username=user).values(
@@ -255,13 +261,13 @@ def project_online_edit(request, report_id):
                 rd_email = rd_email_dict['email']
                 my_user = Project_mail(rd_email)  # 实例化
                 my_user.projectmail()  # 发送邮件
-                models.Onlinelist.objects.filter(id=report_id).update(status=8)  # 更改状态否决上线
+                models.Onlinedetails.objects.filter(id=report_id).update(status=8)  # 更改状态否决上线
             except Exception as e:
                 print(e)
         else:  # 通过审核之后更新状态
-            models.Onlinelist.objects.filter(id=report_id).update(status=2)  # 更改状态
+            models.Onlinedetails.objects.filter(id=report_id).update(status=2)  # 更改状态
         return redirect("/online/list/")
-    report_obj = models.Onlinelist.objects.filter(id=report_id).first()
+    report_obj = models.Onlinedetails.objects.filter(id=report_id).first()
     staff = rbac_model.UserInfo.objects.filter(jobs='项目负责人')
     return render(request, "online/project_edit_online.html", {'report': report_obj, 'all_staff': staff})
 
@@ -278,12 +284,12 @@ def test_online_edit(request, report_id):
         print(url)
 
         new_test_qz = request.POST.get("Test_qz"),  # 测试签字
-        report_obj = models.Onlinelist.objects.filter(id=report_id).update(
+        report_obj = models.Onlinedetails.objects.filter(id=report_id).update(
 
             Test_qz=request.POST.get("Test_qz"),
 
         )
-        cs = models.Onlinelist.objects.filter(id=report_id).values('Test_qz').first()  # 判断项目负责人是否签字是一个字典格式
+        cs = models.Onlinedetails.objects.filter(id=report_id).values('Test_qz').first()  # 判断项目负责人是否签字是一个字典格式
         is_null = cs['Test_qz']  # 获取项目负责人是否签字是字符串格式
 
         if is_null == '':  # 如果测试没有签字则发送邮件告知rd,没有通过审核
@@ -295,13 +301,13 @@ def test_online_edit(request, report_id):
                 rd_email = rd_email_dict['email']
                 my_user = Test_mail(rd_email)  # 实例化
                 my_user.testmail()  # 发送邮件
-                models.Onlinelist.objects.filter(id=report_id).update(status=8)  # 更改状态否决上线
+                models.Onlinedetails.objects.filter(id=report_id).update(status=8)  # 更改状态否决上线
             except Exception as e:
                 print(e)
         else:  # 通过审核之后更新状态
-            models.Onlinelist.objects.filter(id=report_id).update(status=3)  # 更改状态
+            models.Onlinedetails.objects.filter(id=report_id).update(status=3)  # 更改状态
         return redirect("/online/list/")
-    report_obj = models.Onlinelist.objects.filter(id=report_id).first()
+    report_obj = models.Onlinedetails.objects.filter(id=report_id).first()
     # staff = models.UserInfo.objects.filter(jobs='项目负责人')
     return render(request, "online/test_edit_online.html", {'report': report_obj, })
 
@@ -318,16 +324,16 @@ def op_online_edit(request, report_id):
         print(url)
 
         new_test_qz = request.POST.get("Op_qz"),  # 运维签字
-        report_obj = models.Onlinelist.objects.filter(id=report_id).update(
+        report_obj = models.Onlinedetails.objects.filter(id=report_id).update(
 
             Op_qz=request.POST.get("Op_qz"),
 
         )
-        op = models.Onlinelist.objects.filter(id=report_id).values('Op_qz').first()  # 判断项目负责人是否签字是一个字典格式
-        is_null = op['Op_qz'] # 获取项目负责人是否签字是字符串格式
+        op = models.Onlinedetails.objects.filter(id=report_id).values('Op_qz').first()  # 判断项目负责人是否签字是一个字典格式
+        is_null = op['Op_qz']  # 获取项目负责人是否签字是字符串格式
         print(is_null.strip())
 
-        if is_null=="":  # 如果测试没有签字则发送邮件告知rd,没有通过审核
+        if is_null == "":  # 如果测试没有签字则发送邮件告知rd,没有通过审核
             try:
                 print('fffffffff')
 
@@ -337,13 +343,13 @@ def op_online_edit(request, report_id):
                 rd_email = rd_email_dict['email']
                 my_user = Op_mail(rd_email)  # 实例化
                 my_user.opmail()  # 发送邮件
-                models.Onlinelist.objects.filter(id=report_id).update(status=8)  # 更改状态否决上线
+                models.Onlinedetails.objects.filter(id=report_id).update(status=8)  # 更改状态否决上线
             except Exception as e:
                 print(e)
         else:  # 通过审核之后更新状态
-            models.Onlinelist.objects.filter(id=report_id).update(status=4)  # 更改状态
+            models.Onlinedetails.objects.filter(id=report_id).update(status=4)  # 更改状态
         return redirect("/online/list/")
-    report_obj = models.Onlinelist.objects.filter(id=report_id).first()
+    report_obj = models.Onlinedetails.objects.filter(id=report_id).first()
 
     return render(request, "online/op_edit_online.html", {'report': report_obj, })
 
@@ -360,12 +366,12 @@ def pm_online_edit(request, report_id):
         print(url)
 
         new_Pm_qz = request.POST.get("Pm_qz"),
-        report_obj = models.Onlinelist.objects.filter(id=report_id).update(
+        report_obj = models.Onlinedetails.objects.filter(id=report_id).update(
 
             Pm_qz=request.POST.get("Pm_qz"),
 
         )
-        op = models.Onlinelist.objects.filter(id=report_id).values('Pm_qz').first()
+        op = models.Onlinedetails.objects.filter(id=report_id).values('Pm_qz').first()
         is_null = op['Pm_qz']  #
 
         if is_null == 'None':  # 如果没有签字则发送邮件告知rd,没有通过审核
@@ -377,12 +383,12 @@ def pm_online_edit(request, report_id):
                 rd_email = rd_email_dict['email']
                 my_user = Pm_mail(rd_email)  # 实例化
                 my_user.pmmail()  # 发送邮件
-                models.Onlinelist.objects.filter(id=report_id).update(status=8)  # 更改状态否决上线
+                models.Onlinedetails.objects.filter(id=report_id).update(status=8)  # 更改状态否决上线
             except Exception as e:
                 print(e)
         else:  # 通过审核之后更新状态
-            models.Onlinelist.objects.filter(id=report_id).update(status=9)  # 更改状态
+            models.Onlinedetails.objects.filter(id=report_id).update(status=9)  # 更改状态
         return redirect("/online/list/")
-    report_obj = models.Onlinelist.objects.filter(id=report_id).first()
+    report_obj = models.Onlinedetails.objects.filter(id=report_id).first()
 
     return render(request, "online/pm_edit_online.html", {'report': report_obj, })

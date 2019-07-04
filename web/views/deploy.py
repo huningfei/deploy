@@ -182,6 +182,8 @@ def deploy_push(request, project_id, deploy_id):
         all_host_list = deploy_object.project.hosts.all()  # 显示所有关联这个项目的主机
         deployed_host_list = models.DeployRecord.objects.filter(deploy=deploy_object)  # 这个项目里已经发布过的主机
         deployed_host_dict = {item.host_id: item for item in deployed_host_list}  # 主机id：主机名
+        print(all_host_list)
+        # other=
 
         # form = DeployPushForm(deploy_object.project)
         return render(request, 'deploy/deploy_push.html',

@@ -34,6 +34,7 @@ class Host(models.Model):
     """
     hostname = models.CharField(verbose_name='主机名', max_length=32)
     ssh_port = models.IntegerField(verbose_name='SSH端口')
+    other = models.CharField(verbose_name='备注', max_length=32, blank=True)
 
     # Deploy = models.ForeignKey(verbose_name='发布任务', to='Deploy',null=True)
 
@@ -61,7 +62,8 @@ class Project(models.Model):
     private = models.BooleanField(verbose_name='是否私有', default=True)
     online_path = models.CharField(verbose_name='线上项目路径', max_length=128)
     hosts = models.ManyToManyField(verbose_name='关联主机', to='Host')
-
+    def __str__(self):
+        return self.title
 
 class Deploy(models.Model):
     """
@@ -90,8 +92,8 @@ class DeployRecord(models.Model):
     """
     服务器部署记录
     """
-    deploy = models.ForeignKey(verbose_name='部署任务', to='Deploy',on_delete=models.CASCADE)
-    host = models.ForeignKey(verbose_name='主机', to='Host',on_delete=models.CASCADE)
+    deploy = models.ForeignKey(verbose_name='部署任务', to='Deploy',on_delete=models.CASCADE,null=True)
+    host = models.ForeignKey(verbose_name='主机', to='Host',on_delete=models.CASCADE,null=True)
     host_version = models.CharField(verbose_name='版本', max_length=32,null=True)
 
     status_choice = (
@@ -99,10 +101,11 @@ class DeployRecord(models.Model):
         (2, '发布成功'),
         (3, '发布失败'),
     )
-    status = models.IntegerField(verbose_name='状态', choices=status_choice, default=1)
-    deploy_time = models.DateTimeField(verbose_name='发布时间', auto_now_add=True)
+    status = models.IntegerField(verbose_name='状态', choices=status_choice, default=1,null=True)
+    deploy_time = models.DateTimeField(verbose_name='发布时间', auto_now_add=True,null=True)
 
     log = models.TextField(verbose_name='日志')
+
 
 class RollbackRecord(models.Model):
     """
@@ -144,15 +147,16 @@ class Sqlcredential(models.Model):
     database_name=models.CharField(verbose_name="修改库名",max_length=256)
     Apply_time=models.DateTimeField(verbose_name="申请日期")
     sql_yj=models.TextField(verbose_name='SQL语句',max_length=1024)
-    select_project = models.CharField(verbose_name='选择项目负责人审核', max_length=128)
-    select_test = models.CharField(verbose_name='指定测试审核', max_length=128)
-    select_op = models.CharField(verbose_name='指定运维审核', max_length=128)
-    Rollback_name=models.CharField(verbose_name='回滚方案',max_length=128)
-    Development_qz=models.CharField(verbose_name='开发签字',max_length=128)
-    Project_qz=models.CharField(verbose_name='项目负责人签字',max_length=128)
-    Technical_qz=models.CharField(verbose_name='技术总监签字',max_length=128)
-    op_qz=models.CharField(verbose_name='运维签字',max_length=256)
-    Project_confirm_qz = models.CharField(verbose_name='项目负责人确认签字', max_length=128)
+    select_project = models.CharField(verbose_name='选择项目负责人审核', max_length=128,null=True)
+    select_test = models.CharField(verbose_name='指定测试审核', max_length=128,default="")
+    select_op = models.CharField(verbose_name='指定运维审核', max_length=128,default="")
+    Rollback_name=models.CharField(verbose_name='回滚方案',max_length=128,default="")
+    Development_qz=models.CharField(verbose_name='开发签字',max_length=128,default="")
+    Project_qz=models.CharField(verbose_name='项目负责人签字',max_length=128,default="")
+    Technical_qz=models.CharField(verbose_name='技术总监签字',max_length=128,default="")
+    op_qz=models.CharField(verbose_name='运维签字',max_length=256,default="")
+    Project_confirm_qz = models.CharField(verbose_name='项目负责人（产品）确认签字', max_length=128,default="")
+    # pm_qz = models.CharField(verbose_name='项目负责人（产品）确认签字', max_length=128,default="")
     status_choices = ((1, '提交更新'),
                       (2, '负责人审核通过'),
                       (3, '运维上线完成'),
@@ -166,37 +170,24 @@ class Onlinedetails(models.Model):
     """
     上线单详情
     """
-    # Online_project = models.CharField(verbose_name="上线项目(版本号)", max_length=256, blank=True,null=True)
-    # Online_time = models.DateTimeField(verbose_name="上线日期", max_length=256, blank=True,null=True)
-
-
-    Online_step = models.TextField(verbose_name="上线步骤")
+    Online_project = models.CharField(verbose_name="上线项目(版本号)", max_length=256, blank=True)
+    Online_time = models.DateTimeField(verbose_name="上线日期", max_length=256, null=True)
+    Rollback_name = models.CharField(verbose_name='回滚方案', max_length=128,null=True )
+    Online_step = models.TextField(verbose_name="上线步骤",null=True)
     Branch_status = models.CharField(verbose_name='分支合并状态', max_length=256)
     Influence = models.CharField(verbose_name='代码修改影响点', max_length=256)
-    details = models.OneToOneField(to="Onlinelist", on_delete=models.CASCADE)
-    # staff = models.OneToOneField(to="Staff", on_delete=models.CASCADE)
-    staff = models.ForeignKey(to="UserInfo", on_delete=models.CASCADE) #项目负责人
 
-    class Meta:
-        verbose_name = "上线单详情表"
-        verbose_name_plural = verbose_name
-class Onlinelist(models.Model):
-    """
-    上线单列表
-    """
-    Online_project = models.CharField(verbose_name="上线项目(版本号)", max_length=256, blank=True)
-    Online_time = models.DateTimeField(verbose_name="上线日期", max_length=256, blank=True)
-    Rollback_name = models.CharField(verbose_name='回滚方案', max_length=128,)
-    select_project= models.CharField(verbose_name='选择项目负责人审核', max_length=128,)
-    select_test= models.CharField(verbose_name='指定测试审核', max_length=128,)
-    select_op= models.CharField(verbose_name='指定运维审核', max_length=128)
-    Op_qz = models.CharField(verbose_name='运维签字', max_length=256)
-    Rd_qz = models.CharField(verbose_name='rd签字', max_length=256)
-    Test_qz = models.CharField(verbose_name='测试签字', max_length=256)
-    Ui_qz = models.CharField(verbose_name='ui签字', max_length=256)
-    Pm_qz = models.CharField(verbose_name='产品签字', max_length=256)
-    Zj_qz = models.CharField(verbose_name='总监签字', max_length=256)
-    Rallback_result = models.CharField(verbose_name='回归结果测试产品签字', max_length=256)
+    select_project = models.CharField(verbose_name='选择项目负责人审核', max_length=128,null=True,default="" )
+    select_test = models.CharField(verbose_name='指定测试审核', max_length=128,null=True,default="" )
+    select_op = models.CharField(verbose_name='指定运维审核', max_length=128,null=True,default="")
+
+    Op_qz = models.CharField(verbose_name='运维签字', max_length=256,null=True,default="")
+    Rd_qz = models.CharField(verbose_name='rd签字', max_length=256,null=True)
+    Test_qz = models.CharField(verbose_name='测试签字', max_length=256,null=True,default="")
+    Ui_qz = models.CharField(verbose_name='ui签字', max_length=256,null=True,default="")
+    Pm_qz = models.CharField(verbose_name='产品签字', max_length=256,null=True,default="")
+    Zj_qz = models.CharField(verbose_name='总监签字', max_length=256,null=True,default="")
+    Rallback_result = models.CharField(verbose_name='回归结果测试产品签字', max_length=256,null=True,default="")
     status_choices = ((1, '提交更新'),
                       (2, '负责人审核通过'),
                       (3, '预上线'),
@@ -207,6 +198,44 @@ class Onlinelist(models.Model):
                       (8, '否决上线'),
                       (9, '流程结束'))
     status = models.IntegerField(verbose_name='状态', choices=status_choices, default=1)
+
+
+
+    # details_id = models.OneToOneField(to="Onlinelist", on_delete=models.CASCADE) # 详情页
+    # details = models.ForeignKey(to="Onlinelist", on_delete=models.CASCADE) # 详情页
+
+    staff = models.ForeignKey(to="UserInfo", on_delete=models.CASCADE) #项目负责人
+
+    class Meta:
+        verbose_name = "上线单详情表"
+        verbose_name_plural = verbose_name
+# class Onlinelist(models.Model):
+#     """
+#     上线单列表
+#     """
+#     Online_project = models.CharField(verbose_name="上线项目(版本号)", max_length=256, blank=True)
+#     Online_time = models.DateTimeField(verbose_name="上线日期", max_length=256, blank=True)
+#     Rollback_name = models.CharField(verbose_name='回滚方案', max_length=128,)
+#     select_project= models.CharField(verbose_name='选择项目负责人审核', max_length=128,)
+#     select_test= models.CharField(verbose_name='指定测试审核', max_length=128,)
+#     select_op= models.CharField(verbose_name='指定运维审核', max_length=128)
+#     Op_qz = models.CharField(verbose_name='运维签字', max_length=256)
+#     Rd_qz = models.CharField(verbose_name='rd签字', max_length=256)
+#     Test_qz = models.CharField(verbose_name='测试签字', max_length=256)
+#     Ui_qz = models.CharField(verbose_name='ui签字', max_length=256)
+#     Pm_qz = models.CharField(verbose_name='产品签字', max_length=256)
+#     Zj_qz = models.CharField(verbose_name='总监签字', max_length=256)
+#     Rallback_result = models.CharField(verbose_name='回归结果测试产品签字', max_length=256)
+#     status_choices = ((1, '提交更新'),
+#                       (2, '负责人审核通过'),
+#                       (3, '预上线'),
+#                       (4, '代码上线完成'),
+#                       (5, '回归中'),
+#                       (6, '回归完成'),
+#                       (7, '回滚'),
+#                       (8, '否决上线'),
+#                       (9, '流程结束'))
+#     status = models.IntegerField(verbose_name='状态', choices=status_choices, default=1)
 
 
 

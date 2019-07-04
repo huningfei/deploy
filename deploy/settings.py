@@ -64,7 +64,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
             ],
+
         },
     },
 ]
@@ -74,10 +76,26 @@ WSGI_APPLICATION = 'deploy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',  # 引擎
+        'NAME': 'deploy',  # 数据库名
+        'HOST': '192.168.3.19',  # 主机
+        'PORT': 3357,  # 端口
+        'USER': 'root',  # 用户名
+        'PASSWORD': 'centos',  # 密码
+        'OPTIONS': {
+                "init_command": 'SET foreign_key_checks = 0;',
+
+    },
+
     }
 }
 
@@ -122,7 +140,7 @@ STATIC_URL = '/static/'
 
 
 ###############继承django自带的auth功能######
-AUTH_USER_MODEL="web.Userinfo"  # 告诉djanjo用我自己定义的用户表，点前面的是django的项目名字，点后面的是表名
+AUTH_USER_MODEL = "web.Userinfo"  # 告诉djanjo用我自己定义的用户表，点前面的是django的项目名字，点后面的是表名
 # AUTH_USER_MODEL="rbac.Userinfo"  # 告诉djanjo用我自己定义的用户表，点前面的是django的项目名字，点后面的是表名
 
 # ############################ 权限+菜单相关配置 #############################
@@ -139,9 +157,8 @@ VALID_LIST = [
 
 ]
 
+# 权限列表
+PERMISSION_SESSION_KEY = "permission_list"
 
-#权限列表
-PERMISSION_SESSION_KEY="permission_list"
-
-#菜单列表
-MENU_SESSION_KEY="menu_list"
+# 菜单列表
+MENU_SESSION_KEY = "menu_list"

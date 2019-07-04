@@ -4,7 +4,18 @@
     <div class="luffy-container">
         <div>
             <a class="btn btn-primary" href="{% memory_url request 'project_add' %}">添加</a>
+
+
         </div>
+        <div class="right" style="margin-left: 911px">
+            <form method="get" action="{% url 'search' %}">
+                {#                  {% csrf_token %}#}
+                <input name="q" type="search" placeholder="请输入项目名字" required>
+                <button type="submit">搜索</button>
+            </form>
+
+        </div>
+
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -21,11 +32,13 @@
                     <td>{{ row.title }}</td>
                     <td>{{ row.git }}</td>
                     <td>
-                        <a class="btn btn-success" target="_blank" href="{% url 'deploy_list' project_id=row.id %}">上线</a>
+                        <a class="btn btn-success" target="_blank"
+                           href="{% url 'deploy_list' project_id=row.id %}">上线</a>
 
                     </td>
                     <td>
-                        <a class="btn btn-info" target="_blank" href="{% url 'deploy_rollback' project_id=row.id %}">回滚</a>
+                        <a class="btn btn-info" target="_blank"
+                           href="{% url 'deploy_rollback' project_id=row.id %}">回滚</a>
                     </td>
                     <td>
                         <a class="btn btn-info" href="{% memory_url request 'project_edit' row.id %}">编辑</a>

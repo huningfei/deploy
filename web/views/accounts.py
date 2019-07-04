@@ -31,13 +31,14 @@ def login(request):
 
     code = request.POST.get('code') # 获取网页上面显示的验证码
     check_code = request.session.get('check_code') # 用户输入的验证码
-    print('ddddddddddddddd')
+
     if not code:
         return render(request, 'login.html', {'error': '请输入验证码'})
     if code.upper() != check_code.upper():
         return render(request, 'login.html', {'error': '验证码错误'})
     user = request.POST.get('username')
     pwd = request.POST.get('password')
+    print("当前用户",user)
 
     # user_object = models.UserInfo.objects.filter(username=user, password=pwd).first()
     user_object = rbac_model.UserInfo.objects.filter(username=user, password=pwd).first()

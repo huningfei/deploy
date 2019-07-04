@@ -13,7 +13,7 @@ class Mail:
     def mail(self):
         # msg=MIMEText('hello','plain','utf-8')
         # msg['From']=formataddr('')
-        msg=MIMEText('<html><h1><a href="http://127.0.0.1:8001/online/list/">你有新的任务要审核</a></h1></html>', 'html', 'utf-8')
+        msg=MIMEText('<html><h1><a href="http://192.168.4.167:80/online/list/">你有新的任务要审核</a></h1></html>', 'html', 'utf-8')
         msg['From']=formataddr(["网贷天眼",my_sender])   #括号里的对应发件人邮箱昵称、发件人邮箱账号
         # msg['To']=formataddr(["project",','.join(self.my_user)])   #括号里的对应收件人邮箱昵称、收件人邮箱账号
         msg['To']=formataddr(["project",''.join(self.my_user)])   #括号里的对应收件人邮箱昵称、收件人邮箱账号

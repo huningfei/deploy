@@ -4,6 +4,22 @@ from web import models
 from web.utils.pager import Pagination
 from web.utils.urls import memory_reverse
 
+def search(request):
+    q = request.GET.get('q')
+
+    error_msg = ''
+
+    if not q:
+        error_msg = '请输入关键词'
+        return render(request, 'result.html', {'error_msg': error_msg})
+
+    # post_list = models.Asset.objects.filter(leader__icontains=q)
+    # for i in post_list:
+    data_list=models.Project.objects.filter(title__contains=q)
+
+    return render(request, 'result.html', {'error_msg': error_msg, 'post_list': data_list})
+
+
 def project_list(request):
     page = request.GET.get('page', 1)
     # 数据库中数据总条数

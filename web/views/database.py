@@ -182,7 +182,7 @@ def database_edit(request, nid):
 
 def project_database_edit(request, report_id):
     """
-    项目负责人编辑上线单
+    （技术总监）编辑上线单
     :param request:
     :param report_id:
     :return:
@@ -191,14 +191,15 @@ def project_database_edit(request, report_id):
         url = request.get_full_path()
         print(url)
 
-        new_zj_qz = request.POST.get("Project_qz"),  # 项目负责人签字
+        new_zj_qz = request.POST.get("Technical_qz"),  # 技术总监签字
+        print(new_zj_qz)
         report_obj = models.Sqlcredential.objects.filter(id=report_id).update(
 
-            Project_qz=request.POST.get("Project_qz"),
+            Technical_qz=request.POST.get("Technical_qz"),
 
         )
-        zj = models.Sqlcredential.objects.filter(id=report_id).values('Project_qz').first()  # 判断项目负责人是否签字是一个字典格式
-        is_null = zj['Project_qz'].strip()  # 获取项目负责人是否签字是字符串格式
+        zj = models.Sqlcredential.objects.filter(id=report_id).values('Technical_qz').first()  # 判断项目负责人是否签字是一个字典格式
+        is_null = zj['Technical_qz'].strip()  # 获取项目负责人是否签字是字符串格式
 
 
         if is_null == '':  # 如果项目负责人没有签字则发送邮件告知rd,没有通过审核
@@ -218,6 +219,7 @@ def project_database_edit(request, report_id):
         return redirect("/database/list/")
     report_obj = models.Sqlcredential.objects.filter(id=report_id).first()
     staff = rbac_model.UserInfo.objects.filter(jobs='项目负责人')
+    print('项目负责人',staff)
     return render(request, "database/project_edit_database.html", {'report': report_obj, 'all_staff': staff})
 
 
@@ -233,15 +235,16 @@ def op_database_edit(request, report_id):
         print(url)
 
         new_test_qz = request.POST.get("op_qz"),  # 运维签字
+
         report_obj = models.Sqlcredential.objects.filter(id=report_id).update(
 
             op_qz=request.POST.get("op_qz"),
 
         )
-        op = models.Sqlcredential.objects.filter(id=report_id).values('op_qz').first()  # 判断项目负责人是否签字是一个字典格式
-        is_null = op['op_qz']  # 获取项目负责人是否签字是字符串格式
+        op = models.Sqlcredential.objects.filter(id=report_id).values('op_qz').first()  # 判断运维是否签字是一个字典格式
+        is_null = op['op_qz']  # 获取运维是否签字是字符串格式
 
-        if is_null == '':  # 如果测试没有签字则发送邮件告知rd,没有通过审核
+        if is_null == '':  # 如果运维没有签字则发送邮件告知rd,没有通过审核
             try:
 
                 user = request.POST.get("Development_qz")  # 获取填写申请单开发的用户名
@@ -259,6 +262,44 @@ def op_database_edit(request, report_id):
     report_obj = models.Sqlcredential.objects.filter(id=report_id).first()
 
     return render(request, "database/op_database_edit.html", {'report': report_obj, })
+
+
+def pm_database_edit(request, report_id):
+    """
+    产品确认数据库申请单
+    :param request:
+    :param report_id:
+    :return:
+    """
+    if request.method == "POST":
+        url = request.get_full_path()
+        print(url)
+
+        new_test_qz = request.POST.get("Project_confirm_qz"),  # 产品签字,根据html页面的name字段去写的这里要跟name一致
+        print(new_test_qz)
+        report_obj = models.Sqlcredential.objects.filter(id=report_id).update(Project_confirm_qz=request.POST.get("Project_confirm_qz"))
+        print('差评',report_obj)
+        op = models.Sqlcredential.objects.filter(id=report_id).values('Project_confirm_qz').first()  # 判断项目负责人是否签字是一个字典格式
+        is_null = op['Project_confirm_qz']  # 获取项目负责人是否签字是字符串格式
+
+        if is_null == '':  # 如果产品没有签字则发送邮件告知rd,没有通过审核
+            try:
+
+                user = request.POST.get("Development_qz")  # 获取填写申请单开发的用户名
+                rd_email_dict = rbac_model.UserInfo.objects.filter(username=user).values(
+                    'email').first()  # 根据这个用户名去获取邮箱
+                rd_email = rd_email_dict['email']
+                my_user = Op_mail(rd_email)  # 实例化
+                my_user.opmail()  # 发送邮件
+                models.Sqlcredential.objects.filter(id=report_id).update(status=4)  # 更改状态否决上线
+            except Exception as e:
+                print(e)
+        else:  # 通过审核之后更新状态
+            models.Sqlcredential.objects.filter(id=report_id).update(status=6)  # 更改状态为结束
+        return redirect("/database/list/")
+    report_obj = models.Sqlcredential.objects.filter(id=report_id).first()
+
+    return render(request, "database/pm_database_edit.html", {'report': report_obj, })
 
 
 def database_del(request, nid):

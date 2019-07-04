@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+{% load web %}
+{% block content %}
+    <h1>数据库修改申请单详情</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="title">修改库名</label>
+                        <input type="text" id="title" name="database_name" class="form-control"
+                               value="{{ report.database_name }}" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">申请日期</label>
+                        <input type="text" id="title" name="Apply_time" class="form-control"
+                               value="{{ report.Apply_time|date:"Y-m-d" }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">sql语句（申请人填写）</label>
+                        <textarea disabled class="form-control" name="sql_yj" id="content"
+                                  rows="20">{{ report.sql_yj }}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">回滚方案</label>
+                        <input type="text" id="title" name="Rollback_name" class="form-control"
+                               value="{{ report.Rollback_name }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">开发签字</label>
+                        <input type="text" id="title" name="Development_qz" class="form-control"
+                               value="{{ report.Development_qz }}" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">技术总监签字</label>
+                        <input type="text" id="title" name="Project_qz" class="form-control"
+                               value="{{ report.Project_qz }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">运维签字</label>
+                        <input type="text" id="title" name="op_qz" class="form-control" value="{{ report.op_qz }}" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">产品（项目）签字</label>
+                        <input type="text" id="title" name="Project_confirm_qz" class="form-control" value="{{ report.Project_confirm_qz }}">
+                    </div>
+                    <button class="btn btn-success" type="submit">确定</button>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="/static/laydate/laydate.js"></script>
+    <script>
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1',
+
+        });
+    </script>
+
+{% endblock %}

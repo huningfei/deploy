@@ -19,4 +19,6 @@ admin.site.register(models.Permission,PermissionAdmin)
 class UserinfoAdmin(admin.ModelAdmin):
     list_display = ["username", ("password"), "email", "wechat_user","jobs",]
     list_editable = ["password","wechat_user","email"]
+    search_fields = ['username']
+    list_filter = ('username', 'email')
 admin.site.register(models.UserInfo,UserinfoAdmin)

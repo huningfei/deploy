@@ -22,6 +22,22 @@
                 $(".loading").addClass("active")
             }
         );
+                //checkbox 全选/取消全选
+        var isCheckAll = false;
+
+        function swapCheck() {
+            if (isCheckAll) {
+                $("input[type='checkbox']").each(function () {
+                    this.checked = false;
+                });
+                isCheckAll = false;
+            } else {
+                $("input[type='checkbox']").each(function () {
+                    this.checked = true;
+                });
+                isCheckAll = true;
+            }
+        }
     </script>
 {% endblock %}
 
@@ -72,12 +88,12 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>选择</th>
+                        <th><input type="checkbox" onclick="swapCheck()"/> 全选</th>
                         <th>主机</th>
                         <th>状态</th>
-
                         <th>回滚时间</th>
                         <th>日志</th>
+                        <th>备注</th>
 
 
                     </tr>
@@ -107,6 +123,9 @@
                                 </button>
 
                             </td>
+                          <td>
+                              {{ host.other }}
+                          </td>
 
                         </tr>
                     {% endfor %}

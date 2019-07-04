@@ -22,7 +22,7 @@ from web.views import host
 from web.views import user
 from web.views import deploy
 from web.views import script
-from web.views import online
+# from web.views import online
 from web.views import database
 from web.views import online_detail
 # from web import urls as online_urls  # 二级路由
@@ -57,6 +57,8 @@ urlpatterns = [
     url(r'^project/add/$', project.project_add, name='project_add'),
     url(r'^project/edit/(\d+)/$', project.project_edit, name='project_edit'),
     url(r'^project/del/(\d+)/$', project.project_del, name='project_del'),
+    # 搜索
+    url(r'^search', project.search, name='search'),
     # 发布任务
     url(r'^deploy/list/(?P<project_id>\d+)/$', deploy.deploy_list, name='deploy_list'),
     # 添加发布任务
@@ -82,7 +84,7 @@ urlpatterns = [
     url(r'^script/del/(\d+)/$',script.script_del,name='script_del'),
 
     # 上线单列表
-    url(r'^online/list/$', online.online_list, name='online_list'),
+    url(r'^online/list/$', online_detail.online_list, name='online_list'),
     # 查看上线单详情
     url(r'^online/details/(\d+)/$', online_detail.online_detail,name="online_detail"),
     # 开发编辑上线单
@@ -112,6 +114,8 @@ urlpatterns = [
     url(r'^project_database/edit/(\d+)/$', database.project_database_edit, name="project_database_edit"),
     # 运维审核数据库申请单
     url(r'^op_database/edit/(\d+)/$', database.op_database_edit, name="op_database_edit"),
+    # 项目负责人编辑数据库申请单
+    url(r'^pm_database/edit/(\d+)/$', database.pm_database_edit, name="pm_database_edit"),
     # 删除数据库申请单
     url(r'^database/del/(\d+)/$', database.database_del,name="database_del"),
 
