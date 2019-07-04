@@ -228,7 +228,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1652" />
     <option name="y" value="228" />
     <option name="width" value="1936" />
@@ -246,17 +246,6 @@
             <path>
               <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
               <item name="deploy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deploy" type="462c0819:PsiDirectoryNode" />
-              <item name="rbac" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deploy" type="462c0819:PsiDirectoryNode" />
-              <item name="rbac" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="deploy" type="b2602c69:ProjectViewProjectNode" />
@@ -293,8 +282,8 @@
       <recent name="D:\PycharmProjects\python\deploy\web\templates\online" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\PycharmProjects\python\deploy\web\templates\database" />
       <recent name="D:\PycharmProjects\python\deploy\sql" />
+      <recent name="D:\PycharmProjects\python\deploy\web\templates\database" />
       <recent name="D:\PycharmProjects\python\deploy\web\templates" />
       <recent name="D:\PycharmProjects\python\deploy\web\pwd" />
       <recent name="D:\PycharmProjects\python\deploy\web\static\css" />
@@ -538,6 +527,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.20159681" side_tool="true" weight="0.16131106" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -795,13 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/deploy.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/views/deploy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2309">
@@ -933,6 +916,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
           <caret line="38" column="39" lean-forward="true" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/deploy.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
         </state>
       </provider>
     </entry>
