@@ -31,7 +31,9 @@
 
 PIL 就是pillow模块
 requests   pip install --user requests
+
 paramiko
+
 bs4
 
 #######################################
@@ -39,16 +41,23 @@ bs4
 django后台用户名密码：
 
 admin
+
 root1234
+
 添加用户登录django后台操作
 
 ##########################各个角色用户名密码auth_user
 
 管理员  admin 123
+
 开发  kf 123
+
 项目负责人 project 123
+
 运维  hu 123
+
 测试  cs 123
+
 产品 pm 123
 
 #############################
