@@ -13,7 +13,8 @@
                 <th>文件名称</th>
                 <th>状态</th>
                 <th>构建</th>
-                <th>立即发布</th>
+                <th>发布</th>
+                <th>回滚</th>
 
                 <th>操作</th>
             </tr>
@@ -32,6 +33,10 @@
                     </td>
                     <td>
                         <a class="btn btn-success" href="{% memory_url request 'deploy_push' project_id=project.id deploy_id=row.id %}">发布</a>
+                    </td>
+
+                      <td>
+                        <a class="btn btn-warning" href="{% memory_url request 'deploy_rollback' project_id=project.id deploy_id=row.id %}">回滚</a>
                     </td>
 
                     <td>
@@ -62,9 +67,15 @@
                 type: 'get',
                 dataType: 'json',
                 success: function (arg) {
+                    console.log(arg);
                     if (arg.code) {
                         $(ths).parent().prev().text(arg.status);
                         $(ths).parent().prev().prev().text(arg.uid);
+                    }else{
+                        Swal.fire(
+                          '当前分支没有合并！',
+
+                        )
                     }
                     $(ths).next().addClass('hide');
                 }

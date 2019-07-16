@@ -87,12 +87,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # 引擎
         'NAME': 'deploy',  # 数据库名
-        'HOST': '192.168.3.19',  # 主机
+        'HOST': '192.168.2.10',  # 主机
         'PORT': 3357,  # 端口
         'USER': 'root',  # 用户名
-        'PASSWORD': 'centos',  # 密码
+        'PASSWORD': '123',  # 密码
         'OPTIONS': {
                 "init_command": 'SET foreign_key_checks = 0;',
+                'init_command':"SET sql_mode='STRICT_TRANS_TABLES'",
 
     },
 

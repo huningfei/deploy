@@ -25,6 +25,8 @@ from web.views import script
 # from web.views import online
 from web.views import database
 from web.views import online_detail
+
+from web import views
 # from web import urls as online_urls  # 二级路由
 
 urlpatterns = [
@@ -63,6 +65,8 @@ urlpatterns = [
     url(r'^deploy/list/(?P<project_id>\d+)/$', deploy.deploy_list, name='deploy_list'),
     # 添加发布任务
     url(r'^deploy/add/(?P<project_id>\d+)/$', deploy.deploy_add, name='deploy_add'),
+    # url(r'^deploy/add/(?P<project_id>\d+)/$',views.deploy.deploy_add.as_view(),deploy.deploy_add, name='deploy_add'),
+
     url(r'^deploy/edit/(?P<project_id>\d+)/(?P<nid>\d+)/$', deploy.deploy_edit, name='deploy_edit'),
     url(r'^deploy/del/(?P<project_id>\d+)/(?P<nid>\d+)/$', deploy.deploy_del, name='deploy_del'),
     # url(r'^deploy/rollback/(?P<project_id>\d+)/(?P<nid>\d+)/$', deploy.deploy_rollback, name='deploy_rollback'),
@@ -74,8 +78,8 @@ urlpatterns = [
 
     # url(r'^deploy/rollback_list/(?P<project_id>\d+)/$', deploy.deploy_rollback_list, name='deploy_rollback_list'),
     # 回滚
-    # url(r'^deploy/rollback/(?P<project_id>\d+)/(?P<deploy_id>\d+)/$', deploy.deploy_rollback, name='deploy_rollback'),
-    url(r'^deploy/rollback/(?P<project_id>\d+)/$', deploy.deploy_rollback, name='deploy_rollback'),
+    url(r'^deploy/rollback/(?P<project_id>\d+)/(?P<deploy_id>\d+)/$', deploy.deploy_rollback, name='deploy_rollback'),
+    # url(r'^deploy/rollback/(?P<project_id>\d+)/$', deploy.deploy_rollback, name='deploy_rollback'),
 
     # script
     url(r'^script/list/$',script.script_list,name='script_list'),

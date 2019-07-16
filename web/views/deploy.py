@@ -1,4 +1,5 @@
 import os
+
 import re
 # import time
 import shutil
@@ -14,7 +15,10 @@ from web.forms.deploy import DeployModelForm, DeployPushForm
 from web import models
 from web.utils.pager import Pagination
 from web.utils.urls import memory_reverse
+from django.views import View
 
+script_dir='/home/yx/script'
+code_dir='/home/yx/code'
 
 def deploy_list(request, project_id):
     """
@@ -34,6 +38,26 @@ def deploy_list(request, project_id):
 
     return render(request, 'deploy/deploy_list.html', {'depart_queryset': depart_queryset, 'pager': pager, 'project': project})
 
+# class deploy_add(View):
+#     def get(self,request,project_id):
+#         form = DeployModelForm()
+#         return render(request, 'form.html', {'form': form})
+#     def post(self,request,project_id):
+#         form = DeployModelForm(data=request.POST)  # 用户提交的所有数据
+#         querydict=form.data #字典格式
+#         file=querydict['file'] # 找出用户提交的单文件
+#         print(file)
+#         # return file
+#         # 对用户提交的数据进行校验
+#         if form.is_valid():
+#
+#             form.instance.project_id = project_id  # 在modelform想使用project_id的默认值，就用form.instance这样写
+#             form.save()
+#             # file=models.Deploy.objects.filter(id=project_id).values()
+#             # print(file)
+#             return redirect(memory_reverse(request, 'deploy_list', project_id=project_id))
+#         # return file
+#         return render(request, 'form.html', {'form': form})
 
 def deploy_add(request, project_id):
     """
@@ -42,16 +66,27 @@ def deploy_add(request, project_id):
     :param project_id:
     :return:
     """
+
     if request.method == 'GET':
         form = DeployModelForm()
         return render(request, 'form.html', {'form': form})
-    form = DeployModelForm(data=request.POST)
+
+    form = DeployModelForm(data=request.POST) # 用户提交的所有数据
+    querydict=form.data #字典格式
+    file=querydict['branch'] # 找出用户提交的单文件
+    print(file)
+    # return file
     # 对用户提交的数据进行校验
     if form.is_valid():
+
         form.instance.project_id = project_id  # 在modelform想使用project_id的默认值，就用form.instance这样写
         form.save()
+        # file=models.Deploy.objects.filter(id=project_id).values()
+        # print(file)
         return redirect(memory_reverse(request, 'deploy_list', project_id=project_id))
+    # return file
     return render(request, 'form.html', {'form': form})
+
 
 
 def deploy_edit(request, project_id, nid):
@@ -67,6 +102,9 @@ def deploy_edit(request, project_id, nid):
         form = DeployModelForm(instance=obj)
         return render(request, 'form.html', {'form': form})  # 带默认值
     form = DeployModelForm(data=request.POST, instance=obj)
+    querydict = form.data  # 字典格式
+    file = querydict['file']  # 找出用户提交的单文件
+    print(file)
     if form.is_valid():
         form.instance.project_id = project_id
         form.save()
@@ -90,23 +128,25 @@ def deploy_del(request, project_id, nid):
 
 def deploy_fetch(request, project_id, deploy_id):
     """
-     点击上线按钮执行的代码
+     点击获取代码按钮执行的代码
     :param request:
     :param project_id: 项目id
-    :param deploy_id: 部署id
+    :param deploy_id: 部署任务id，代表具体是哪个分支
     :return:
     """
-    print(request.user.git_name)
+    # print(request.user.git_name)
     # print(request.user.git_pwd)
+
     # 部署的是那个项目
     deploy_object = models.Deploy.objects.filter(id=deploy_id, project_id=project_id).first()
     # 下载代码所在路径   deploy_object.project.title 项目名   deploy_object.branch分支名
 
     pull_time = deploy_object.time.strftime('%Y%m%d%H%M%S') # 从数据库获取的时间
-    print(pull_time)
+    # print(pull_time)
     cwd_path = os.path.join(settings.BASE_DIR, 'codes', deploy_object.project.title, pull_time)
 
-    print(cwd_path)
+    print('代码存放路径',cwd_path)
+
 
     # 1. 获取代码  仓库地址 + 分支 + subprocess
     def get_code():
@@ -124,6 +164,10 @@ def deploy_fetch(request, project_id, deploy_id):
         else:
             git_addr = deploy_object.project.git
 
+
+        # if file == "": # 如果没有单文件，就下载整个分支
+        #     print(git_addr)
+
         # 克隆仓库到本地，-b指定版本或者分支
         cmd = "git clone -b %s %s" % (deploy_object.branch, git_addr)
         # cmd = "git clone  %s" % (git_addr)
@@ -131,7 +175,36 @@ def deploy_fetch(request, project_id, deploy_id):
             os.makedirs(cwd_path)
         subprocess.check_call(cmd, shell=True, cwd=cwd_path)
 
-    get_code()
+        # 判断分支是否合并
+        branch_dict = models.Deploy.objects.filter(id=deploy_id).values().first()
+        branch = branch_dict['branch']
+        print('分支名',branch)
+        # 代码存放路径
+        clone_code_dir = os.path.join(settings.BASE_DIR, 'codes', deploy_object.project.title, pull_time,
+                                      deploy_object.project.title)
+        os.chdir(clone_code_dir)  # 进入到这个路径
+        result = os.system("git log --merges |grep {0}|wc -l".format(branch))  # 过滤出用户提交的分支是否有合并提交的记录
+        print(result)
+        if result == 255: # 为什么写255，因为没有合并记录他就返回255，但是在终端里面显示0
+            # print('dddddddddddd')
+            # return HttpResponse('此分支没有合回到主干')
+            # return render(request,'branch.html')
+            return False
+
+        else:
+            return True
+
+    if get_code():
+
+        print('ddd')
+    else:
+
+        return JsonResponse({'code':0, 'status': '此分支没有合回到主干', 'uid':'111'})
+
+
+    # get_code()
+
+
 
     # 2. 编译代码
     def compile_code():
@@ -149,6 +222,7 @@ def deploy_fetch(request, project_id, deploy_id):
         zip_file_path = os.path.join(cwd_path, file_name)  # 压缩之后文件的名字
         shutil.make_archive(base_name=zip_file_path, format='zip', root_dir=project_code_path)  # 压缩成zip格式
         # return file_name + '.zip'
+
         return file_name
 
     zip_file_name = package_code()
@@ -174,6 +248,7 @@ def deploy_push(request, project_id, deploy_id):
     :return:
     """
     deploy_object = models.Deploy.objects.filter(id=deploy_id, project_id=project_id).first()
+    print('发布',deploy_object)
 
     if request.method == 'GET':
         # 1. 显示发布信息
@@ -213,15 +288,24 @@ def deploy_push(request, project_id, deploy_id):
             return status
 
         record_object, is_new = create_deploy_record()  # 调用这个函数
+        # 找出用户提交的单文件
+        def get_file():
+
+
+            file_dict=models.Deploy.objects.filter(id=deploy_id).values().first()
+            file=file_dict['file']
+            return file
+        get_file()
 
 
         # 2 推送
         def push_code():
+            file=get_file() #调用单文件函数
             status = False
             try:
 
                 private_key = paramiko.RSAKey(file_obj=StringIO(request.user.server_private_key))  # 获取用户私钥
-                print('私钥',private_key)
+                # print('私钥',private_key)
 
                 transport = paramiko.Transport((host_object.hostname, host_object.ssh_port))  # 主机名和端口号
 
@@ -240,7 +324,9 @@ def deploy_push(request, project_id, deploy_id):
                 target_folder_path = '/home/yx/codes/%s/%s/' % (
                     deploy_object.project.title, pull_time)
 
-                stdin, stdout, stderr = ssh.exec_command('mkdir -p %s' % target_folder_path)
+                stdin, stdout, stderr = ssh.exec_command('mkdir -p %s' % target_folder_path) #创建目录
+                print('单文件',file)
+                stdin, stdout, stderr = ssh.exec_command('echo {0} >  /tmp/include.txt'.format(file)) #拷贝单文件到指定文件中
                 stdout.read()
                 # 上传代码到服务器
                 target_file_path = os.path.join(target_folder_path, deploy_object.uid + '.zip')  # 文件存放目录
@@ -278,16 +364,17 @@ def deploy_push(request, project_id, deploy_id):
                 # 远程执行命令
                 ssh = paramiko.SSHClient()
                 ssh._transport = transport
-                # 创建脚本目录
+                # 创建脚本目录时间戳
                 pull_time = deploy_object.time.strftime('%Y%m%d%H%M%S')
 
                 code_file_path = os.path.join(cwd_path, deploy_object.uid)
-                target_folder_path = '/home/yx/script/%s/%s/' % (
+                # 存放脚本的目录
+                target_folder_path = script_dir+'/%s/%s/' % (
                     deploy_object.project.title, pull_time)  # /home/yx/script/dbhot/pull_time
                 stdin, stdout, stderr = ssh.exec_command('mkdir -p %s' % target_folder_path)
                 stdout.read()
                 # 上传数据库里面的脚本内容到服务器
-
+                print(deploy_object.script.title)
                 script_file_name = deploy_object.uid.split('.')[
                                        0] + "." + deploy_object.script.interpreter  # 脚本名字，项目名字+时间戳+.py
                 #
@@ -295,13 +382,14 @@ def deploy_push(request, project_id, deploy_id):
                                                 script_file_name)  # /home/yx/script/dbhot/v4.0 +脚本名字
                 file_object = sftp.open(target_file_path, mode='w')  # 在指定目录下打开一个文件，然后写入
                 file_object.write(deploy_object.script.code)  # 把数据库里面的脚本内容拿到
-                interpreter_type=deploy_object.script.interpreter
+                interpreter_type=deploy_object.script.interpreter # 脚本类型
 
                 if interpreter_type=='sh':
                     command_shell='dos2unix %s' %(target_file_path)
                     stdin, stdout, stderr = ssh.exec_command(command_shell)
                     command = 'sh %s %s %s %s' % (
                         target_file_path, deploy_object.project.title, pull_time, deploy_object.uid + '.zip')
+                    print(command)
                     stdin, stdout, stderr = ssh.exec_command(command)
                     result = stdout.read()
                     file_object.close()  # 关闭刚才的写文件
@@ -364,7 +452,7 @@ def deploy_push(request, project_id, deploy_id):
     return redirect(memory_reverse(request, 'deploy_push', project_id=project_id, deploy_id=deploy_id))
 
 
-def deploy_rollback(request, project_id):
+def deploy_rollback(request, project_id,deploy_id):
     """
     回滚代码,
     :param request:
@@ -374,7 +462,9 @@ def deploy_rollback(request, project_id):
     """
     deploy_object_all = models.Deploy.objects.all()  # 所有任务
 
-    deploy_object = models.Deploy.objects.filter(project_id=project_id).first()
+    # deploy_object = models.Deploy.objects.filter(project_id=project_id).first()
+    deploy_object = models.Deploy.objects.filter(id=deploy_id,project_id=project_id).first()
+    print('回滚',deploy_object)
 
     if request.method == 'GET':
         # 1. 显示发布信息
@@ -452,10 +542,11 @@ def deploy_rollback(request, project_id):
                 code_dir_all = stdout.read().decode().split('\n')
 
                 code_dir_name = code_dir_all[0]
+                pull_time = deploy_object.time.strftime('%Y%m%d%H%M%S')
 
                 # 创建脚本目录
                 # code_file_path = os.path.join(cwd_path, deploy_object.uid)
-                target_folder_path = '/home/yx/rollback_script/%s/' % (deploy_object.project.title)  # 回滚脚本存放目录
+                target_folder_path = '/home/yx/rollback_script/%s/%s/' % (deploy_object.project.title,pull_time)  # 回滚脚本存放目录
                 # print(target_folder_path)
 
                 stdin, stdout, stderr = ssh.exec_command('mkdir -p %s' % target_folder_path)
@@ -464,6 +555,7 @@ def deploy_rollback(request, project_id):
 
                 script_file_name = deploy_object.uid.split('.')[
                                        0] + "." + deploy_object.script.interpreter  # 脚本名字，项目名字+时间戳+.py
+                print('回滚脚本名字',script_file_name)
 
                 # 脚本存放的绝对路径
                 target_file_path = os.path.join(target_folder_path, script_file_name)  # /home/yx/script/dbhot/a.py
@@ -473,6 +565,8 @@ def deploy_rollback(request, project_id):
 
                 # # 执行回滚脚本
                 interpreter_type = deploy_object.script.interpreter
+                print(deploy_object.script.title)
+
 
                 if interpreter_type == 'sh':
 
@@ -481,7 +575,8 @@ def deploy_rollback(request, project_id):
                     stdin, stdout, stderr = ssh.exec_command(command_shell)
                     command = 'sh %s %s %s %s' % (
                         target_file_path, deploy_object.project.title, version_code, code_dir_name)
-                    # eg sh /home/yx/rollback_script/PHP/PHP20190116150602.sh PHP 20190117170452 PHP20190117170452
+                    print('回滚脚本',command)
+                    # eg sh /home/yx/rollback_script/PHP/PHP20190627165226.sh PHP 20190712121248 aa.php
 
                     stdin, stdout, stderr = ssh.exec_command(command)
                     result = stdout.read()
@@ -540,4 +635,5 @@ def deploy_rollback(request, project_id):
     pool.shutdown()
     # for host in host_list:
     #     task(host, deploy_object)
-    return redirect(memory_reverse(request, 'deploy_rollback', project_id=project_id))
+    # return redirect(memory_reverse(request, 'deploy_rollback', project_id=project_id))
+    return redirect(memory_reverse(request, 'deploy_rollback', project_id=project_id,deploy_id=deploy_id))

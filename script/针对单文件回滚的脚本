@@ -1,0 +1,17 @@
+#!/bin/bash
+project_name=$1
+dir_time=$2
+file_name=$3
+# 所有代码存放目录
+CODE_BASE_PATH="/home/yx/codes"
+# 某个项目存放目录
+PROJECT_PATH="$CODE_BASE_PATH/$project_name/$dir_time/${project_name}${dir_time}"
+echo "$PROJECT_PATH"
+# 项目所在目录
+
+WEB_BASE_PATH="/home/yx/nginx/html/"
+
+# include文件所在目录
+include_dir="/tmp"
+#UPDATE_FILE="/home/yx/file/$project_name/$dir_time"
+rsync -av $PROJECT_PATH/ --include-from=$include_dir/include.txt --exclude=/*  $WEB_BASE_PATH

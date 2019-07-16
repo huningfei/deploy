@@ -5,7 +5,12 @@ from web import models
 class DeployModelForm(BootStrapModelForm):
     class Meta:
         model = models.Deploy
-        fields = ['branch','script']
+        fields = ['branch','script','file']
+        widgets={"file":forms.widgets.Textarea}
+
+    def __init__(self, *args, **kwargs):
+        super(DeployModelForm, self).__init__(*args, **kwargs)
+        self.fields['file'].required = False
 
 
 class DeployPushForm(forms.Form):

@@ -22,7 +22,7 @@
                 <th>项目名称</th>
                 <th>仓库地址</th>
                 <th>上线</th>
-                <th>回滚</th>
+{#                <th>回滚</th>#}
                 <th>操作</th>
             </tr>
             </thead>
@@ -36,10 +36,10 @@
                            href="{% url 'deploy_list' project_id=row.id %}">上线</a>
 
                     </td>
-                    <td>
-                        <a class="btn btn-info" target="_blank"
-                           href="{% url 'deploy_rollback' project_id=row.id %}">回滚</a>
-                    </td>
+{#                    <td>#}
+{#                        <a class="btn btn-info" target="_blank"#}
+{#                           href="{% url 'deploy_rollback' project_id=row.id %}">回滚</a>#}
+{#                    </td>#}
                     <td>
                         <a class="btn btn-info" href="{% memory_url request 'project_edit' row.id %}">编辑</a>
                         <a class="btn btn-danger" href="{% memory_url request 'project_del' row.id %}">删除</a>
